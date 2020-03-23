@@ -1,6 +1,6 @@
 # Various userscripts
 
-I use the tampermonkey extention on Chrome: https://www.tampermonkey.net/
+I use the tampermonkey extention on Chrome: [https://www.tampermonkey.net/](https://www.tampermonkey.net/)
 
 This allows me to run javascript whenever I visit sites. Here are some of my personal scripts I've written:
 
@@ -8,7 +8,9 @@ This allows me to run javascript whenever I visit sites. Here are some of my per
 
 ## Warning!
 
-Running random javascript that can run on any site you visit from a stranger is a very bad idea! Someone could steal your personal information, steal your passwords, make you do stuff you'd rather not want to, etc. Please do not just use these scripts bindly! If you ever run into a userscript that you don't fully understand, you shouldn't use it. Be safe! :D
+Running random javascript that can run on any site you visit from a stranger is a very bad idea! Someone could steal your personal information, steal your passwords, etc. Please do not just use these scripts bindly! If you ever run into a userscript that you don't fully understand, you shouldn't use it. Be safe! :D 
+
+
 
 ## no-popups-userscript.js
 Prevents popups from various sites. Please update @match for your needs.
@@ -22,12 +24,14 @@ Prevents photobucket from redirecting you to other pages as a form of forcing yo
 This script made it look like dark souls was a hack n slash game on Steam during one of their sales. This is an inside joke between friends as we like to joking argue whether or not dark souls is a hack n slash. Obviously this script won't work now since Steam has updated their site, but the code is still interesting to reference.
 
 Here are some screenshots and a video of the results of the script:
-https://www.youtube.com/watch?v=-BoC6rvFP5U
-https://cdn.discordapp.com/attachments/613030229958590485/661004912716415038/Hack_n_Slash_2.PNG
+[Video recording](https://www.youtube.com/watch?v=-BoC6rvFP5U)
+[Screenshot](https://cdn.discordapp.com/attachments/613030229958590485/661004912716415038/Hack_n_Slash_2.PNG)
+
 
 
 ## auto-twitch-channel-bonus-points.js
 Auto clicks the treasure chess icon when watching someone's twitch. This can be very useful since you can leave this running while someone's twitch is minimized or on a different tab.
+
 
 
 ## auto-like-new-instagram-post.js
