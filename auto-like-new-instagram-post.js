@@ -30,14 +30,18 @@ You can force stop a 'hunt' by calling stopHunt or by clearing your localStorage
 All methods are added to the global variable (window for browsers). You can call these methods by openning your console on chrome
 
 hunt: function - Will refresh the page over and over again until a new post is found. Once it is found, it will be opened and liked for you.
-stopHunt: function - Will stop any 'hunts' you have active. 
+stopHunt: function - Will stop any 'hunts' you have active.
 
 */
 
 (function() {
     'use strict';
 
-    const huntForNextImage = () => {
+    const setDelay = (delay) => {
+        localStorage.setItem("moo-delay", delay);
+    }
+
+    const huntForNextImage = (delay) => {
         // Find the aricle element once it is rendered
         const article = document.querySelector('article');
 
@@ -57,19 +61,21 @@ stopHunt: function - Will stop any 'hunts' you have active.
         localStorage.setItem("moo-firstHref", _a.href);
         // End Record its href (link to that post) and store it in localStorage
 
+        setDelay(delay);
+
         // Refresh the page and start the hunt!
         window.location.reload();
     }
 
     let foundImage = false;
-    const searchForNextImage = (firstHref) => {
+    const searchForNextImage = (firstHref, delay) => {
         // Find the aricle element once it is rendered
         const article = document.querySelector('article');
 
         if (!article) {
             console.warn("Unexpected missing article");
             setTimeout(() => {
-                searchForNextImage(firstHref);
+                searchForNextImage(firstHref, delay);
             }, 1);
             return;
         }
@@ -81,7 +87,7 @@ stopHunt: function - Will stop any 'hunts' you have active.
         if (!_a) {
             console.warn("no anchor found");
             setTimeout(() => {
-                searchForNextImage();
+                searchForNextImage(firstHref, delay);
             }, 1);
             return;
         }
@@ -92,7 +98,10 @@ stopHunt: function - Will stop any 'hunts' you have active.
         // Check if the href is different (if it is, this must be a new post, or the newest post was deleted, etc)
         if (_aHref === firstHref) {
             // refresh and try again
-            location.reload();
+            setTimeout(() => {
+                console.log(delay);
+                location.reload();
+            }, delay || 0);
             return;
         }
         // End Check if the href is different (if it is, this must be a new post, or the newest post was deleted, etc)
@@ -147,7 +156,8 @@ stopHunt: function - Will stop any 'hunts' you have active.
     if (!foundImage && location.href !== 'https://www.instagram.com/') {
         const href = localStorage.getItem('moo-firstHref');
         if (href) {
-            searchForNextImage(href);
+            const delay = +(localStorage.getItem('moo-delay') || 0);
+            searchForNextImage(href, delay);
         }
     }
 
