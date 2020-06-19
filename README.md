@@ -1,6 +1,6 @@
 # Various userscripts
 
-I use the tampermonkey extention on Chrome: [https://www.tampermonkey.net/](https://www.tampermonkey.net/)
+I use the userscript manager, Tampermonkey: [https://www.tampermonkey.net/](https://www.tampermonkey.net/)
 
 This allows me to run javascript whenever I visit sites. Here are some of my personal scripts I've written:
 
