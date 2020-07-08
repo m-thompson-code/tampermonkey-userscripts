@@ -146,6 +146,7 @@ stopHunt: function - Will stop any 'hunts' you have active.
             setTimeout(() => {
                 likeImage();
             }, 1);
+            return;
         }
 
         // Log that it was clicked
