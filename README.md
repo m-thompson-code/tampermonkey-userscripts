@@ -47,5 +47,8 @@ Auto redirects to Twitter and back. This is done because Medium doesn't enforce 
 
 There's a one-liner workaround where you mess up the cookie's uid value. This is the best performt way to get around the paywall, but you can't be signed in when using this bypass trick. Also you will still get ads / ui reminding you of your 'limit' on free articles.
 
+## bypass-la-times.js
+Removes paywall html/css and forces normal behavior on the articles being viewed. Works without having to be signed in (haven't tested if it works when you're signed in, but I'd expect it to). Something to note about this solution is that the la times tries to scroll you to the top of the page, so even if you remove the overlay and make the page 'scrollable', you'll not be able to read the article. To work around this, we make the body tag have max height 100vh and make that scrollable using overflow-y: auto. This means that the styles of the site is changed slightly. I wouldn't expect anyone to notice this change.
+
 ## bypass-new-york-times.js
 Removes paywall html/css and forces normal behavior on the articles being viewed. Works without having to be signed in, and works when you are signed in.
