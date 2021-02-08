@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         ScriptCode Cheater
+// @name         StripCode Cheater
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Cheat my way to rank #0
@@ -12,10 +12,7 @@
 // Used to read and write json with stripcode answerBank
 let fileHandle;
 
-let answerBank = [];
-
-// used to validate if added answers to answer bank are valid
-let unclearAnswerSets = [];
+let answerBank = {};
 
 let lastCodeSeen = "";
 
@@ -62,6 +59,8 @@ async function main() {
     updateStateLoop();
 }
 
+let loopTimeout;
+
 async function updateStateLoop() {
     await getState();
 
@@ -72,7 +71,9 @@ async function updateStateLoop() {
         return;
     }
 
-    setTimeout(() => {
+    clearTimeout(loopTimeout);
+
+    loopTimeout = setTimeout(() => {
         updateStateLoop();
     }, 0);
 }
@@ -101,19 +102,84 @@ async function getState() {
     }
     // END Get filename, code (code snippet related to file), get answer buttons
 
-    // Search for next question button and click it at some point
-    const nextButton = getNextQuestionButton();
-
     // Check for a stored correct answers in answerBank
     const correctAnswerDatas = getCorrectAnswerDatas(filename, code, answers);
 
-    // If there's just one correct answer, use that one
+    // Search for next question button and click it at some point
+    const nextButton = getNextQuestionButton();
+
+    // If the next question button is visible, this should mean that an answer has been selected
+    // This also means that the ui should show which answer is correct or incorrect
+    if (nextButton) {
+        // Check for incorrect answers if they were chosen from our answerBank
+        const uiSaysAnswerIsIncorrect = document.getElementsByClassName('text-red-900')?.[0];
+        // const uiSaysAnswerIsCorrect = document.getElementsByClassName('text-green-900')?.[0];
+
+        // Check the ui of the app for which answer is correct (the app shows the correct answer after choosing any answer)
+        const answerOnScreen = findCorrectAnswer(answers);
+
+        // const existingEntry = answerBank.find(entry => entry.filename === filename && entry.correctAnswer === answerOnScreen.text);
+        const existingEntry = answerBank[filename]?.[answerOnScreen.text];//.find(entry => entry.filename === filename && entry.correctAnswer === answerOnScreen.text);
+
+        // Update existing entry if the incorrect answer was selected
+        if (existingEntry) {
+            if (existingEntry.length < code || uiSaysAnswerIsIncorrect) {
+                answerBank[filename][answerOnScreen.text] = code;
+                console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
+            }
+        } else {
+            // Add new entry to answerBank
+            const newAnswerToAdd = {
+                filename: filename,
+                code: code,
+                correctAnswer: answerOnScreen.text,
+            };
+
+            answerBank[filename] = answerBank[filename] || {};
+            answerBank[filename][answerOnScreen.text] = code;
+
+            // answerBank.push(newAnswerToAdd);
+            console.log(" ~ added new entry to answer bank", { filename, text: answerOnScreen.text, code });
+        }
+        // if (existingEntry) {
+        //     if (existingEntry.code.length < code || uiSaysAnswerIsIncorrect) {
+        //         existingEntry.code = code;
+        //         console.log(" ~ updated entry to answer bank", existingEntry);
+        //     }
+        // } else {
+        //     // Add new entry to answerBank
+        //     const newAnswerToAdd = {
+        //         filename: filename,
+        //         code: code,
+        //         correctAnswer: answerOnScreen.text,
+        //     };
+
+        //     answerBank.push(newAnswerToAdd);
+        //     console.log(" ~ added new entry to answer bank", newAnswerToAdd);
+        // }
+
+        // Update local file of answerBank
+        await saveAnswerBank(answerBank);
+
+        lastCodeSeen = code;
+
+        if (uiSaysAnswerIsIncorrect) {
+            console.error("Got a wrong answer");
+            console.error(answers, correctAnswerDatas);
+        }
+
+        nextButton.click();
+        
+        return;
+    }
+
+    // If there's more than one possible correct answer based on the answer bank, skip picking one
     if (correctAnswerDatas.length > 1) {
         if (lastCodeSeen !== code) {
-            unclearAnswerSets.push(correctAnswerDatas);
-            console.warn(unclearAnswerSets, correctAnswerDatas);
-            debugger;
+            console.warn('found more than one possible answer for code snippet', correctAnswerDatas);
+            // debugger;
         }
+    // If there's just one possible correct answer based on the answer bank pick that one
     } else if (correctAnswerDatas.length === 1) {
         const correctAnswerData = correctAnswerDatas[0];
         let matchingAnswer;
@@ -121,7 +187,8 @@ async function getState() {
         // Validate if correctAnswerData was actually correct
         try {
             // Find the correct answer
-            matchingAnswer = answers.find(answer => answer.text === correctAnswerData.correctAnswer).element;
+            matchingAnswer = answers.find(answer => answer.text === correctAnswerData).element;
+            // matchingAnswer = answers.find(answer => answer.text === correctAnswerData.correctAnswer).element;
 
             // Click the correct answer
             matchingAnswer.click();
@@ -130,59 +197,14 @@ async function getState() {
             console.error(error);
             debugger;
         }
+    // If there's no possible answer in the answer bank, just pick the first answer
     } else if (!correctAnswerDatas.length) {
         // Just click any answer since we don't know which answer is the right one
         answers[0].element.click();
-    }
-
-    // Check for incorrect answers if they were chosen from our answerBank
-    const uiSaysAnswerIsIncorrect = document.getElementsByClassName('text-red-900')?.[0];
-
-    if (!correctAnswerDatas.length || uiSaysAnswerIsIncorrect) {
-        // Check the ui of the app for which answer is correct (the app shows the correct answer after choosing any answer)
-        const answerOnScreen = findCorrectAnswer(answers);
-
-        if (answerOnScreen) {
-            const existingEntry = answerBank.find(entry => entry.filename === filename && entry.correctAnswer === answerOnScreen.text);
-
-            // Update existing entry
-            if (existingEntry) {
-                existingEntry.code = code;
-                console.log(" ~ updated entry to answer bank", existingEntry);
-            } else {
-                // Add new entry to answerBank
-                const newAnswerToAdd = {
-                    filename: filename,
-                    code: code,
-                    correctAnswer: answerOnScreen.text,
-                };
-
-                answerBank.push(newAnswerToAdd);
-                console.log(" ~ added new entry to answer bank", newAnswerToAdd);
-            }
-
-            // Update local file of answerBank
-            await saveAnswerBank(answerBank);
-        }
-    }
-
-    if (correctAnswerDatas.length && uiSaysAnswerIsIncorrect) {
-        console.error(filename, code);
-
-        correctAnswerDatas.forEach(data => {
-            console.error(data.correctAnswer);
-        });
-
         debugger;
     }
 
     lastCodeSeen = code;
-
-    if (nextButton) {
-        window.correctAnswerDatasCheck = true;
-        nextButton.click();
-        return;
-    }
 }
 
 // Search ui of app for the filename
@@ -227,21 +249,31 @@ function findCorrectAnswer(answers) {
 // Check answerBank for a correct answer that has matching filename, code snippet, and correctAnswer is included on the answers
 // It's important to check if the correctAnswer is included with answers since there are duplicate filenames + code snippets
 function getCorrectAnswerDatas(filename, code, answers) {
-    const correctAnswerDatas = answerBank.filter(entry => {
-        if (entry.filename !== filename) {
-            return false;
-        }
+    const filenameEntries = answerBank[filename] || {};
 
-        if (!answers.some(answer => answer.text === entry.correctAnswer)) {
-            return false;
-        }
+    const correctAnswerDatas = [];
 
-        if (entry.code.includes(code)) {
-            return true;
+    for (const answer of answers) {
+        if (filenameEntries[answer.text] && filenameEntries[answer.text].includes(code.trim())) {
+            correctAnswerDatas.push(answer.text);
         }
+    }
 
-        return false;
-    });
+    // const correctAnswerDatas = answerBank.filter(entry => {
+    //     if (entry.filename !== filename) {
+    //         return false;
+    //     }
+
+    //     if (!answers.some(answer => answer.text === entry.correctAnswer)) {
+    //         return false;
+    //     }
+
+    //     if (entry.code.includes(code.trim())) {
+    //         return true;
+    //     }
+
+    //     return false;
+    // });
 
     return correctAnswerDatas;
 }
@@ -304,20 +336,20 @@ async function getFileData() {
 
     return new Promise(resolve => {
         fr.addEventListener("load", e => {
-            // Default value will be empty [] in case there's an error
-            let jsonAry = [];
+            // Default value will be empty in case there's an error
+            let jsonMap = {};
     
             try {
-                jsonAry = JSON.parse(fr.result);
+                jsonMap = JSON.parse(fr.result);
             } catch(error) {
-                // This can error if the file is empty, default to an empty []
+                // This can error if the file is empty, default to an empty
                 console.error(error);
             }
 
             // Update the global answerBank variable
-            answerBank = jsonAry;
+            answerBank = jsonMap;
 
-            resolve(jsonAry);
+            resolve(jsonMap);
         });
 
         fr.readAsText(fileData);
