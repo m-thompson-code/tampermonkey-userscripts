@@ -177,7 +177,6 @@ async function getState() {
     if (correctAnswerDatas.length > 1) {
         if (lastCodeSeen !== code) {
             console.warn('found more than one possible answer for code snippet', correctAnswerDatas);
-            // debugger;
         }
     // If there's just one possible correct answer based on the answer bank pick that one
     } else if (correctAnswerDatas.length === 1) {
@@ -201,7 +200,7 @@ async function getState() {
     } else if (!correctAnswerDatas.length) {
         // Just click any answer since we don't know which answer is the right one
         answers[0].element.click();
-        debugger;
+        console.warn("Clicking first answer since we don't have an entry in answer bank");
     }
 
     lastCodeSeen = code;

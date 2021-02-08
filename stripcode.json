@@ -38,10 +38,10 @@
     "2mol/pboy": "module Main where",
     "iostreamer-X/FuncShell": "module Main where\n\nimport ArgumentParser\nimport System.Environment\nimport System.Exit\nimport DefaultParser as DP\nimport TableParser as TP\nimport ExternalParser as EP",
     "mihaimaruseac/hindent": "module Main (main) where",
-    "cdepillabout/pretty-simple": "module Main where",
+    "cdepillabout/pretty-simple": "module Main where\n\n-- This is a small executable that will pretty-print anything from stdin.\n-- It can be installed to `~/.local/bin` if you enable the flag `buildexe` like so:\n--\n-- @\n--   $ stack install redacted-2.0.1.1 --flag redacted:buildexe\n-- @\n--",
     "tweag/inline-java": "module Main where",
     "alpacaaa/zero-bullshit-haskell": "main :: IO ()\nmain = do\n  n <- System.Environment.getArgs\n  case n of\n    [\"01\"] -> Ex01StaticString.StaticString.main\n    [\"02\"] -> Ex02Echo.Echo.main\n    [\"03\"] -> Ex03CaseMatch.CaseMatch.main",
-    "dmjio/miso": "module Main where\n\nimport           redacted hiding (asyncCallback)\nimport           redacted.String\nimport           Control.Concurrent.MVar",
+    "dmjio/miso": "module Main where\n\nimport Data.Proxy\nimport Servant.API\n#if MIN_VERSION_servant(0,14,1)\nimport Servant.Links\n#elif MIN_VERSION_servant(0,10,0)\nimport Servant.Utils.Links\n#endif",
     "reflex-frp/reflex": "module Main where",
     "passy/givegif": "module Main where\n\nimport qualified Control.Error.Util         as Err\nimport qualified Data.ByteString.Lazy       as BSL\nimport qualified Data.ByteString.Lazy.Char8 as BS8\nimport qualified Data.Text                  as T\nimport qualified Data.Text.IO               as TIO\nimport qualified Network.URI\nimport qualified Network.Wreq               as Wreq",
     "lettier/gifcurry": "redacted\n  (C) 2016 David redacted\n  redacted.com\n-}",
@@ -105,9 +105,9 @@
   },
   "lib.rs": {
     "clap-rs/clap": "extern crate proc_macro;",
-    "EmbarkStudios/rust-gpu": "mod test;",
+    "EmbarkStudios/rust-gpu": "trait Shape: Copy {\n    /// Distances indicate where the point is in relation to the shape:\n    /// * negative distance: the point is \"inside\" the shape\n    /// * distance of `0.0`: the point is \"on\" the shape\n    /// * positive distance: the point is \"outside\" the shape\n    fn distance(self, p: Vec2) -> f32;",
     "weld-project/weld": "pub use redacted::runtime::ffi::*;",
-    "rusoto/rusoto": "html_logo_url = \"https://raw.githubusercontent.com/redacted/redacted/master/assets/logo-square.png\"\n)]\n//! <p><fullname>AWS Auto Scaling</fullname> <p>Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling and predictive scaling for your resources using scaling plans. Use this service in conjunction with the Amazon EC2 Auto Scaling, Application Auto Scaling, Amazon CloudWatch, and AWS CloudFormation services. </p> <p>Currently, predictive scaling is only available for Amazon EC2 Auto Scaling groups.</p> <p>For more information about AWS Auto Scaling, including information about granting IAM users required permissions for AWS Auto Scaling actions, see the <a href=\"https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html\">AWS Auto Scaling User Guide</a>.</p></p>\n//!\n//! If you're using the service, you're probably looking for [AutoscalingPlansClient](struct.AutoscalingPlansClient.html) and [AutoscalingPlans](trait.AutoscalingPlans.html).",
+    "rusoto/rusoto": "html_logo_url = \"https://raw.githubusercontent.com/redacted/redacted/master/assets/logo-square.png\"\n)]\n//! <p>AWS IAM Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your AWS environment. An external principal can be another AWS account, a root user, an IAM user or role, a federated user, an AWS service, or an anonymous user. This guide describes the AWS IAM Access Analyzer operations that you can call programmatically. For general information about Access Analyzer, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html\">AWS IAM Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using Access Analyzer, you first need to create an analyzer.</p>\n//!\n//! If you're using the service, you're probably looking for [AccessAnalyzerClient](struct.AccessAnalyzerClient.html) and [AccessAnalyzer](trait.AccessAnalyzer.html).",
     "rust-lang/rls": "pub mod config;\npub use config::Config;",
     "LemmyNet/lemmy": "extern crate strum_macros;",
     "toshi-search/Toshi": "pub use redacted_types::*;",
@@ -144,7 +144,7 @@
   },
   "index.html": {
     "prinzhorn/skrollr": "<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset=\"utf-8\">",
-    "usablica/intro.js": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Basic usage</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"redacted - Better introductions for websites and features with a step-by-step guide for your projects.\">",
+    "usablica/intro.js": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Multi-page introduction, Page 1</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"redacted - Better introductions for websites and features with a step-by-step guide for your projects.\">",
     "google/web-starter-kit": "<!doctype html>\n<html lang=\"\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
     "madrobby/zepto": "<!DOCTYPE html>\n<html>\n    <head>\n      <title>iPhone.redacted</title>\n      <link href=\"iphone.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />\n      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\"/>\n      <meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />",
     "jeromeetienne/ar.js": "<!DOCTYPE html>\n<meta name=\"viewport\" content=\"width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0\">\n<style media='screen'>\n\tbody {\n\t\tbackground-color: #000;\n\t\tcolor: grey;\n\t}",
@@ -153,7 +153,7 @@
     "swagger-api/swagger-codegen": "<!doctype html>\n<html>\n  <head>\n    <title>An <em>API</em> with more <strong>Markdown</strong> in summary, description, and other text</title>\n    <style type=\"text/css\">\n      body {\n\tfont-family: Trebuchet MS, sans-serif;",
     "ripienaar/free-for-dev": "<!DOCTYPE html>\n<html>\n<head>\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\n  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n  <meta charset=\"UTF-8\">\n  <title>Free for developers</title>",
     "twitter/twemoji": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>redacted Emoji (redacted)</title>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-    "teamstuq/skill-map": "<!DOCTYPE html>"
+    "teamstuq/skill-map": "<!DOCTYPE html>\n\n<html>\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no\">\n    <title>StuQ技能图谱v0.1.2</title>\n    <link href=\"css/style.css\" rel=\"stylesheet\">\n    <script>"
   },
   "ComponentRequestedSpec.hs": {
     "haskell/cabal": "module Distribution.Types.ComponentRequestedSpec (\n    -- $buildable_vs_enabled_components"
@@ -207,14 +207,14 @@
     "bilibili/ijkplayer": "sdl_amedia_status_t SDL_AMediaCodec_FakeFifo_init(SDL_AMediaCodec_FakeFifo *fifo)\n{\n    memset(fifo, 0, sizeof(SDL_AMediaCodec_FakeFifo));"
   },
   "index-FINISHED.html": {
-    "wesbos/javascript30": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Speech Detection</title>\n</head>\n<body>"
+    "wesbos/javascript30": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Type Ahead 👀</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>"
   },
   "AppDelegate.m": {
     "cocoalumberjack/cocoalumberjack": "@implementation AppDelegate\n\n@synthesize window = _window;",
     "svprogresshud/svprogresshud": "@interface AppDelegate ()",
     "marcuswestin/webviewjavascriptbridge": "@implementation AppDelegate",
     "matryer/bitbar": "@interface AppDelegate : NSObject <NSApplicationDelegate, NSURLDownloadDelegate, SUUpdaterDelegate>",
-    "vicc/chameleon": "@interface AppDelegate ()"
+    "vicc/chameleon": "@interface AppDelegate ()\n\n@end"
   },
   "CommentConvertingVisitorWrapper.cs": {
     "icsharpcode/CodeConverter": "namespace redacted.redacted.VB\n{"
@@ -333,14 +333,14 @@
     "kdn251/interviews": "class LongestPalindromicSubstring {\n    public String longestPalindrome(String s) {\n        if(s == null || s.length() == 0) {\n            return \"\";\n        }"
   },
   "redacted.js": {
-    "verbalexpressions/jsverbalexpressions": "function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }",
+    "verbalexpressions/jsverbalexpressions": "class VerbalExpression extends RegExp {\n    /**\n     * Creates an instance of VerbalExpression.\n     * @constructor\n     * @alias VerEx\n     * @memberof VerbalExpression\n     */",
     "cheeriojs/cheerio": "function isNode(obj) {\n  return (\n    obj.name ||\n    obj.type === 'root' ||\n    obj.type === 'text' ||\n    obj.type === 'comment'\n  );",
     "segmentio/nightmare": "const DEFAULT_GOTO_TIMEOUT = 30 * 1000\n// Standard timeout for wait(ms)\nconst DEFAULT_WAIT_TIMEOUT = 30 * 1000\n// Timeout between keystrokes for `.type()`\nconst DEFAULT_TYPE_INTERVAL = 100\n// timeout between `wait` polls\nconst DEFAULT_POLL_INTERVAL = 250",
     "typicode/husky": "const pleaseUpgradeNode = require('please-upgrade-node')\nconst pkg = require('./package.json')",
     "bevacqua/dragula": "function redacted (initialContainers, options) {\n  var len = arguments.length;\n  if (len === 1 && Array.isArray(initialContainers) === false) {\n    options = initialContainers;\n    initialContainers = [];\n  }\n  var _mirror; // mirror image",
     "enyo/dropzone": "function _typeof(obj) { \"@babel/helpers - typeof\"; if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; } return _typeof(obj); }",
     "denysdovhan/wtfjs": "const fs = require(\"fs\");\nconst obj = require(\"through2\").obj;\nconst pager = require(\"default-pager\");\nconst msee = require(\"msee\");\nconst join = require(\"path\").join;\nconst boxen = require(\"boxen\");\nconst chalk = require(\"chalk\");",
-    "maxwellito/vivus": "function redacted(element, options, callback) {\n  setupEnv();",
+    "maxwellito/vivus": "function Pathformer(element) {\n  // Test params\n  if (typeof element === 'undefined') {\n    throw new Error('Pathformer [constructor]: \"element\" parameter is required');\n  }",
     "designmodo/flat-ui": "function focusable( element, isTabIndexNotNaN ) {\n\tvar map, mapName, img,\n\t\tnodeName = element.nodeName.toLowerCase();\n\tif ( \"area\" === nodeName ) {\n\t\tmap = element.parentNode;\n\t\tmapName = map.name;\n\t\tif ( !element.href || !mapName || map.nodeName.toLowerCase() !== \"map\" ) {",
     "riot/riot": "const { DOM_COMPONENT_INSTANCE_PROPERTY, COMPONENTS_IMPLEMENTATION_MAP, PLUGINS_SET } = globals",
     "foreverjs/forever": "const fs = require(\"fs\");\nconst path = require(\"path\");\nconst events2 = require('eventemitter2');\nconst events = require(\"events\");\nconst exec = require(\"child_process\").exec;\nconst spawn = require(\"child_process\").spawn;\nconst cliff = require(\"cliff\");",
@@ -370,7 +370,7 @@
     "weld-project/weld": "pub mod constants;",
     "timvisee/ffsend": "pub mod debug;\npub mod delete;\npub mod download;\npub mod exists;\npub mod generate;\n#[cfg(feature = \"history\")]\npub mod history;",
     "federico-terzi/espanso": "pub mod windows;",
-    "dandavison/delta": "mod console_tests;\nmod iterator;",
+    "dandavison/delta": "mod git_config_entry;",
     "denisidoro/navi": "pub mod alfred;\npub mod terminal;",
     "tikv/tikv": "Result as GrpcResult, RpcContext, RpcStatus, RpcStatusCode, ServerStreamingSink, UnarySink,\n    WriteFlags,\n};\nuse kvproto::diagnosticspb::{\n    Diagnostics, SearchLogRequest, SearchLogResponse, ServerInfoRequest, ServerInfoResponse,\n    ServerInfoType,\n};",
     "cloudflare/boringtun": "pub mod benchmark;\nuse self::benchmark::do_benchmark;\nuse super::crypto::x25519::*;\nuse super::noise::*;\nuse base64::{decode, encode};\nuse hex::encode as encode_hex;\nuse libc::{raise, SIGSEGV};",
@@ -380,7 +380,7 @@
     "citybound/citybound": "pub enum LogLevel {\n    Debug,\n    Info,\n    Warning,\n    Error,\n}",
     "rust-lang/rust": "mod bufreader;\nmod bufwriter;\nmod linewriter;\nmod linewritershim;",
     "tokio-rs/mio": "mod afd;\nmod io_status_block;",
-    "blockstack/stacks-blockchain": "pub mod leader_block_commit;\n/// This module contains all burn-chain operations\npub mod leader_key_register;\npub mod stack_stx;\npub mod transfer_stx;\npub mod user_burn_support;",
+    "blockstack/stacks-blockchain": "extern crate regex;",
     "sharkdp/hyperfine": "mod asciidoc;\nmod csv;\nmod json;\nmod markdown;",
     "launchbadge/sqlx": "mod handle;\nmod r#virtual;\nmod worker;",
     "EbTech/rust-algorithms": "pub mod fft;\npub mod num;",
@@ -392,7 +392,7 @@
     "firecracker-microvm/firecracker": "mod dist_regs;\nmod icc_regs;\nmod redist_regs;",
     "chyyuu/os_kernel_lab": "pub mod virtio_blk;",
     "glium/glium": "extern crate redacted;\nextern crate libc;",
-    "wasmerio/wasmer": "mod function;\nmod global;\nmod memory;\nmod table;",
+    "wasmerio/wasmer": "attributes::{Attribute, AttributeLoc},\n    builder::Builder,\n    context::Context,\n    targets::TargetMachine,\n    types::FunctionType,\n    values::{BasicValueEnum, CallSiteValue, FunctionValue, PointerValue},\n};",
     "Geal/nom": "mod macros;",
     "alacritty/alacritty": "mod bell;\nmod colors;\nmod scrolling;"
   },
@@ -407,7 +407,7 @@
   },
   "app.js": {
     "nwjs/nw.js": "function App() {\n}\nrequire('util').inherits(App, exports.Base);",
-    "vuejs/vue-router": "const router = new VueRouter({\n  mode: 'history',\n  base: __dirname,\n  routes: [\n    { path: '/' },\n    // params are denoted with a colon \":\"\n    { path: '/params/:foo/:bar' },",
+    "vuejs/vue-router": "let numPopstateListeners = 0\nconst listenerCountDiv = document.getElementById('popcount')\nlistenerCountDiv.textContent = 0",
     "microsoft/web-dev-for-beginners": "class EventEmitter {\n\tconstructor() {\n\t\tthis.listeners = {};\n\t}",
     "docker/kitematic": "const remote = electron.remote;\nconst Menu = remote.Menu;\n// ipcRenderer is used as we're in the process\nconst ipcRenderer = electron.ipcRenderer;",
     "ruanyf/react-demos": "function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }",
@@ -596,12 +596,12 @@
     "suhailshergill/extensible-effects": "module Control.Eff.State.Strict where"
   },
   "main.go": {
-    "astaxie/build-web-application-with-golang": "type Element interface{}\ntype List []Element",
+    "astaxie/build-web-application-with-golang": "func show_basic_struct() {\n\tfmt.Println(\"\\nshow_basic_struct()\")\n\ttype person struct {\n\t\tname string\n\t\tage  int\n\t}",
     "joewalnes/websocketd": "func logfunc(l *libredacted.LogScope, level libredacted.LogLevel, levelName string, category string, msg string, args ...interface{}) {\n\tif level < l.MinLevel {\n\t\treturn\n\t}\n\tfullMsg := fmt.Sprintf(msg, args...)",
     "pingcap/tidb": "var (\n\taddr      = flag.String(\"addr\", \"127.0.0.1:2379\", \"pd address\")\n\ttableName = flag.String(\"table\", \"benchdb\", \"name of the table\")\n\tbatchSize = flag.Int(\"batch\", 100, \"number of statements in a transaction, used for insert and update-random only\")\n\tblobSize  = flag.Int(\"blob\", 1000, \"size of the blob column in the row\")\n\tlogLevel  = flag.String(\"L\", \"warn\", \"log level\")\n\trunJobs   = flag.String(\"run\", strings.Join([]string{",
     "tsenart/vegeta": "func main() {\n\tcommands := map[string]command{\n\t\t\"attack\": attackCmd(),\n\t\t\"report\": reportCmd(),\n\t\t\"plot\":   plotCmd(),\n\t\t\"encode\": encodeCmd(),\n\t\t\"dump\":   dumpCmd(),",
     "evanw/esbuild": "var helpText = func(colors logger.Colors) string {\n\treturn `\n` + colors.Bold + `Usage:` + colors.Default + `\n  redacted [options] [entry points]",
-    "kataras/iris": "func main() {\n\tapp := newApp()\n\tapp.Logger().SetLevel(\"debug\")\n\tapp.Listen(\":8080\")\n}",
+    "kataras/iris": "func newApp() *redacted.Application {\n\tapp := redacted.New()",
     "spf13/cobra": "func MainTemplate() []byte {\n\treturn []byte(`/*\n{{ .Copyright }}\n{{ if .Legal.Header }}{{ .Legal.Header }}{{ end }}\n*/\npackage main",
     "go-kit/kit": "func main() {\n\tvar (\n\t\tlisten = flag.String(\"listen\", \":8080\", \"HTTP listen address\")\n\t\tproxy  = flag.String(\"proxy\", \"\", \"Optional comma-separated list of URLs to proxy uppercase requests\")\n\t)\n\tflag.Parse()"
   },
@@ -858,7 +858,7 @@
     "serokell/nixfmt": "module redacted.Types where",
     "jxv/dino-rush": "module DinoRush.Engine.Types where",
     "advancedtelematic/quickcheck-state-machine": "module Test.StateMachine.Types\n  ( StateMachine(..)\n  , Command(..)\n  , getCommand\n  , Commands(..)\n  , NParallelCommands\n  , lengthCommands\n  , ParallelCommandsF(..)\n  , ParallelCommands\n  , Pair(..)\n  , fromPair\n  , toPair\n  , fromPair'\n  , toPairUnsafe'\n  , Reason(..)\n  , isOK\n  , noCleanup\n  , module Test.StateMachine.Types.Environment\n  , module Test.StateMachine.Types.GenSym\n  , module Test.StateMachine.Types.History\n  , module Test.StateMachine.Types.References\n  ) where\n\nimport           Data.Functor.Classes\n                   (Ord1, Show1)\nimport           Data.Semigroup\nimport           Prelude\nimport           Test.QuickCheck\n                   (Gen)\n\nimport           Test.StateMachine.Logic\nimport           Test.StateMachine.Types.Environment\nimport           Test.StateMachine.Types.GenSym\nimport           Test.StateMachine.Types.History\nimport           Test.StateMachine.Types.References\n\n------------------------------------------------------------------------\n\ndata StateMachine model cmd m resp = StateMachine\n  { initModel      :: forall r. model r\n  , transition     :: forall r. (Show1 r, Ord1 r) => model r -> cmd r -> resp r -> model r\n  , precondition   :: model Symbolic -> cmd Symbolic -> Logic\n  , postcondition  :: model Concrete -> cmd Concrete -> resp Concrete -> Logic\n  , invariant      :: Maybe (model Concrete -> Logic)\n  , generator      :: model Symbolic -> Maybe (Gen (cmd Symbolic))\n  , shrinker       :: model Symbolic -> cmd Symbolic -> [cmd Symbolic]\n  , semantics      :: cmd Concrete -> m (resp Concrete)\n  , mock           :: model Symbolic -> cmd Symbolic -> GenSym (resp Symbolic)\n  , cleanup        :: model Concrete -> m ()\n  }\n\nnoCleanup :: Monad m => model Concrete -> m ()\nnoCleanup _ = return ()\n\n-- | Previously symbolically executed command\n--\n-- Invariant: the variables must be the variables in the response.\ndata Command cmd resp = Command !(cmd Symbolic) !(resp Symbolic) ![Var]\n\ngetCommand :: Command cmd resp -> cmd Symbolic\ngetCommand (Command cmd _resp _vars) = cmd\n\nderiving\n  stock\n  instance (Show (cmd Symbolic), Show (resp Symbolic)) => Show (Command cmd resp)\n\nderiving\n  stock\n  instance (Read (cmd Symbolic), Read (resp Symbolic)) => Read (Command cmd resp)\n\nderiving\n  stock\n  instance ((Eq (cmd Symbolic)), (Eq (resp Symbolic))) => Eq (Command cmd resp)\n\nnewtype Commands cmd resp = Commands\n  { unCommands :: [Command cmd resp] }\n  deriving newtype (Semigroup, Monoid)\n\nderiving\n  stock\n  instance (Show (cmd Symbolic), Show (resp Symbolic)) => Show (Commands cmd resp)\n\nderiving\n  stock\n  instance (Read (cmd Symbolic), Read (resp Symbolic)) => Read (Commands cmd resp)\n\nderiving\n  stock\n  instance ((Eq (cmd Symbolic)), (Eq (resp Symbolic))) => Eq (Commands cmd resp)\n\nlengthCommands :: Commands cmd resp -> Int\nlengthCommands = length . unCommands\n\ndata Reason\n  = Ok\n  | PreconditionFailed String\n  | PostconditionFailed String\n  | InvariantBroken String\n  | ExceptionThrown String\n  | MockSemanticsMismatch\n  deriving stock (Eq, Show)\n\nisOK :: Reason -> Bool\nisOK Ok = True\nisOK _  = False\n\ndata ParallelCommandsF t cmd resp = ParallelCommands\n  { prefix   :: !(Commands cmd resp)\n  , suffixes :: [t (Commands cmd resp)]\n  }\n\nderiving\n  stock\n  instance (Eq (cmd Symbolic), Eq (resp Symbolic), Eq (t (Commands cmd resp)))\n  => Eq (ParallelCommandsF t cmd resp)\n\nderiving\n  stock\n  instance (Show (cmd Symbolic), Show (resp Symbolic), Show (t (Commands cmd resp)))\n  => Show (ParallelCommandsF t cmd resp)\n\ndata Pair a = Pair\n  { proj1 :: !a\n  , proj2 :: !a\n  }\n  deriving stock (Eq, Ord, Show, Functor, Foldable, Traversable)\n\nfromPair :: Pair a -> (a, a)\nfromPair (Pair x y) = (x, y)\n\ntoPair :: (a, a) -> Pair a\ntoPair (x, y) = Pair x y\n\ntype ParallelCommands = ParallelCommandsF Pair\n\ntype NParallelCommands = ParallelCommandsF []\n\nfromPair' :: ParallelCommandsF Pair cmd resp -> ParallelCommandsF [] cmd resp\nfromPair' p = p { suffixes = (\\(Pair l r) -> [l, r]) <$> suffixes p}\n\ntoPairUnsafe' :: ParallelCommandsF [] cmd resp -> ParallelCommandsF Pair cmd resp\ntoPairUnsafe' p = p { suffixes = unsafePair <$> suffixes p}\n    where\n      unsafePair [a,b] = Pair a b\n      unsafePair _ = error \"invariant violation! Shrunk list should always have 2 elements.\"",
-    "ConsenSys/constellation": "module redacted.Node.Types where",
+    "ConsenSys/constellation": "module redacted.Enclave.Types where",
     "smallhadroncollider/taskell": "module redacted.Events.State.Types where",
     "justinethier/husk-scheme": "Module      : Language.Scheme.Compiler.Types\nCopyright   : Justin Ethier\nLicence     : MIT (see LICENSE in the distribution)",
     "haskell-foundation/foundation": "module Basement.UTF8.Types\n    (\n    -- * Stepper\n      Step(..)\n    , StepBack(..)\n    , StepASCII(..)\n    , StepDigit(..)",
@@ -1243,7 +1243,7 @@
   },
   "HTTP.hs": {
     "alpacaaa/zero-bullshit-haskell": "module TodoMVC.HTTP where",
-    "eckyputrady/haskell-scotty-realworld-example-app": "module Feature.Common.HTTP where"
+    "eckyputrady/haskell-scotty-realworld-example-app": "module Platform.HTTP\n      ( main\n      ) where"
   },
   "openssl_md5_dgst.cpp": {
     "tencent/mmkv": "namespace openssl {\n/*\n * Implemented from RFC1321 The MD5 Message-Digest Algorithm\n */"
@@ -1421,7 +1421,7 @@
     "vuejs/vue-cli": "const routes<% if (hasTypeScript) { %>: Array<RouteRecordRaw><% } %> = [\n  {\n    path: '/',\n    name: 'Home',\n    component: Home\n  },\n  {",
     "nodemailer/nodemailer": "const Transform = require('stream').Transform;",
     "reduxjs/reselect": "function defaultEqualityCheck(a, b) {\n  return a === b\n}",
-    "jorgebucaran/hyperapp": "const fx = (argsToProps, fx) => (...args) => [fx, argsToProps(args)]",
+    "jorgebucaran/hyperapp": "const EMPTY_ARR = []",
     "webtorrent/webtorrent": "const { EventEmitter } = require('events')\nconst concat = require('simple-concat')\nconst createTorrent = require('create-torrent')\nconst debug = require('debug')('redacted')\nconst DHT = require('bittorrent-dht/client') // browser exclude\nconst loadIPSet = require('load-ip-set') // browser exclude\nconst parallel = require('run-parallel')",
     "bower/bower": "function commandFactory(id) {\n    function runApi() {\n        var command = require(id);\n        var commandArgs = [].slice.call(arguments);",
     "standard/standard": "const Linter = require('redacted-engine').linter\nconst opts = require('./options')",
@@ -1465,7 +1465,7 @@
     "hexojs/hexo": "const { Schema } = require('warehouse');\nconst { join } = require('path');"
   },
   "c_lib.rs": {
-    "tree-sitter/tree-sitter": "const BUFFER_TAGS_RESERVE_CAPACITY: usize = 100;\nconst BUFFER_DOCS_RESERVE_CAPACITY: usize = 1024;"
+    "tree-sitter/tree-sitter": "pub struct TSHighlighter {\n    languages: HashMap<String, (Option<Regex>, HighlightConfiguration)>,\n    attribute_strings: Vec<&'static [u8]>,\n    highlight_names: Vec<String>,\n    carriage_return_index: Option<usize>,\n}"
   },
   "Buttons.hs": {
     "HeinrichApfelmus/threepenny-gui": "Buttons\n------------------------------------------------------------------------------}"
@@ -1508,7 +1508,7 @@
     "blitzcode/hue-dashboard": "module WebUIHelpers where"
   },
   "View.hs": {
-    "theam/haskell-do": "module HaskellDo.Compilation.View where",
+    "theam/haskell-do": "module HaskellDo.Style.View (initialize) where",
     "morphismtech/squeal": "Module: redacted.PostgreSQL.Definition.View\nDescription: create and drop views\nCopyright: (c) Eitan Chatav, 2019\nMaintainer: eitan@morphism.tech\nStability: experimental"
   },
   "setupJestEnv.ts": {
@@ -1576,7 +1576,8 @@
     "quchen/articles": "main = defaultMain",
     "mrkkrp/req": "module Main (main) where",
     "samtay/tetris": "main = defaultMain",
-    "itchyny/sjsp": "main = defaultMain"
+    "itchyny/sjsp": "main = defaultMain",
+    "chrisdone/vado": "main = defaultMain"
   },
   "archiver.sh": {
     "source-foundry/hack": "redacted_VERSION=\"v3.003\"\nredacted_ARCHIVES_DIR=\"../../../redacted-archives\"\nredacted_BUILD_DIR=\"../../build\""
@@ -1679,7 +1680,7 @@
     "Rigellute/spotify-tui": "pub enum Key {\n  /// Both Enter (or Return) and numpad Enter\n  Enter,\n  /// Tabulation key\n  Tab,\n  /// Backspace key\n  Backspace,"
   },
   "notification.rs": {
-    "tauri-apps/tauri": "pub fn send(\n  webview: &mut Webview<'_>,\n  options: NotificationOptions,\n  callback: String,\n  error: String,\n) {\n  crate::execute_promise("
+    "tauri-apps/tauri": "pub struct Notification {\n  /// The notification body.\n  body: Option<String>,\n  /// The notification title.\n  title: Option<String>,\n  /// The notification icon.\n  icon: Option<String>,"
   },
   "MyRunnable.java": {
     "snailclimb/javaguide": "public class MyRunnable implements Runnable {"
@@ -1706,7 +1707,7 @@
     "osener/markup.rocks": "module Widgets.Dialog.OpenFile where"
   },
   "abstract_factory.swift": {
-    "ochococo/design-patterns-in-swift": "/*:\n🌰 Abstract Factory\n-------------------"
+    "ochococo/design-patterns-in-swift": "/*:\n🌰 抽象工厂（Abstract Factory）\n-------------"
   },
   "GuiRecords.hs": {
     "lettier/gifcurry": "redacted\n  (C) 2018 David redacted\n  redacted.com\n-}"
@@ -1817,7 +1818,7 @@
     "hashicorp/terraform": "func Provisioner(p provisioners.Interface) tfplugin5.ProvisionerServer {\n\treturn &provisioner{\n\t\tprovisioner: p,\n\t\tschema:      p.GetSchema().Provisioner,\n\t}\n}"
   },
   "kay_auto.rs": {
-    "citybound/citybound": "impl Actor for TaskEndScheduler {\n    type ID = TaskEndSchedulerID;"
+    "citybound/citybound": "pub struct VegetationUIID {\n    _raw_id: RawID\n}"
   },
   "matchRoutes.js": {
     "reacttraining/react-router": "function matchRoutes(routes, pathname, /*not public API*/ branch = []) {\n  routes.some(route => {\n    const match = route.path\n      ? matchPath(pathname, route)\n      : branch.length\n      ? branch[branch.length - 1].match // use parent match\n      : Router.computeRootMatch(pathname); // use default \"root\" match"
@@ -1910,7 +1911,7 @@
     "reflex-frp/reflex-dom": "module Reflex.Dom.Builder.Hydratable where"
   },
   "DESCRIPTION.en_us.html": {
-    "google/fonts": "<p>You will throw tomatoes at me when I say that the font Neucha was invented for the sake of one and only one phrase: “I love you”. It was 2005 and I was in love. The first version of the font was done in 8 hours. I recently redid this fastfont from scratch, some glyphs have changed greatly but most of them I did not touch – just polished. Neucha very strong in terms of energy and I love it. Neucha translated from the Russian language means “not knowing how to create redacted right”.</p>"
+    "google/fonts": "<p>This is another of my old redacted used for inscriptions on stone. I created the ModernAntiqua font around 1995 like my other redacted - when I started doing the inscriptions on stone professionally. The font is based on Roman square capitals. Initially the font contained only capitals and digits and later I made the missing lowercase and symbols. Last year I started converting my typeface designs into redacted. The first was NovaCut and all the Nova family, next MedievalSharp, and here's another...</p>"
   },
   "intern_symbols.rs": {
     "tree-sitter/tree-sitter": "pub(super) fn intern_symbols(grammar: &InputGrammar) -> Result<InternedGrammar> {\n    let interner = Interner { grammar };"
@@ -2036,7 +2037,7 @@
     "mozilla/send": "const html = require('choo/html');"
   },
   "BoxStyleSelect.hs": {
-    "jtdaugherty/tart": "module Events.BoxStyleSelect\n  ( handleBoxStyleSelectEvent\n  )\nwhere"
+    "jtdaugherty/tart": "module UI.BoxStyleSelect\n  ( drawBoxStyleSelectUI\n  )\nwhere"
   },
   "ListFilters.hs": {
     "brendanhay/amazonka": "module Network.AWS.GuardDuty.ListFilters\n    (\n    -- * Creating a Request\n      listFilters\n    , ListFilters\n    -- * Request Lenses\n    , lNextToken"
@@ -2133,7 +2134,7 @@
     "alacritty/alacritty": "pub const DEFAULT_NAME: &str = \"redacted\";"
   },
   "init.zsh": {
-    "sorin-ionescu/prezto": "if (( ! $+commands[dpkg] && ! $+commands[apt-get] )); then\n  return 1\nfi"
+    "sorin-ionescu/prezto": "pmodload 'helper'"
   },
   "jenkins-plugin-version.service.js": {
     "badges/shields": "const { promisify } = require('util')\nconst { regularUpdate } = require('../../core/legacy/regular-update')\nconst { renderVersionBadge } = require('../version')\nconst { BaseService, NotFound } = require('..')"
@@ -3566,7 +3567,7 @@
     "moya/moya": "internal struct PropertyListEncoding: ParameterEncoding {"
   },
   "ast.rs": {
-    "serde-rs/serde": "pub struct Container<'a> {\n    /// The struct or enum name (without generics).\n    pub ident: syn::Ident,\n    /// Attributes on the structure, parsed for redacted.\n    pub attrs: attr::Container,\n    /// The contents of the struct or enum.\n    pub data: Data<'a>,"
+    "serde-rs/serde": "pub struct Container<'a> {\n    /// The struct or enum name (without generics).\n    pub ident: syn::Ident,\n    /// Attributes on the structure, parsed for redacted.\n    pub attrs: attr::Container,\n    /// The contents of the struct or enum.\n    pub data: Data<'a>,\n    /// Any generics on the struct or enum.\n    pub generics: &'a syn::Generics,\n    /// Original input.\n    pub original: &'a syn::DeriveInput,\n}"
   },
   "cred.rs": {
     "extrawurst/gitui": "components::{\n        visibility_blocking, CommandBlocking, CommandInfo, Component,\n        DrawableComponent,\n    },\n    keys::SharedKeyConfig,\n    strings,\n    ui::style::SharedTheme,"
@@ -3603,7 +3604,7 @@
     "nodebb/nodebb": "const user = require('../user');\nconst db = require('../database');"
   },
   "redacted.zsh": {
-    "pyenv/pyenv": "if [[ ! -o interactive ]]; then\n    return\nfi",
+    "pyenv/pyenv": "if [[ ! -o interactive ]]; then\n    return\nfi\n\ncompctl -K _redacted redacted",
     "rbenv/rbenv": "if [[ ! -o interactive ]]; then\n    return\nfi"
   },
   "stream.c": {
@@ -3793,7 +3794,7 @@
   "server.rs": {
     "shadowsocks/shadowsocks-rust": "config::{ClientConfig, Mode},\n    local::{context::ServiceContext, loadbalancing::PingBalancer},\n};",
     "toshi-search/Toshi": "pub struct DocsAffected {\n    /// The number of documents removed by the query\n    pub docs_affected: u64,\n}",
-    "hyperium/tonic": "pub mod pb {\n    redacted::include_proto!(\"/grpc.examples.echo\");\n}",
+    "hyperium/tonic": "pub mod pb {\n    redacted::include_proto!(\"grpc.examples.echo\");\n}",
     "cloudflare/quiche": "extern crate log;"
   },
   "redacted46-api-changes.html": {
@@ -3919,7 +3920,7 @@
     "facebook/fresco": "public interface CacheKeyFactory {"
   },
   "param.rs": {
-    "microsoft/windows-rs": "pub struct Param {\n    pub reader: &'static TypeReader,\n    pub row: Row,\n}"
+    "microsoft/windows-rs": "pub enum Param<'a, T: Abi> {\n    Borrowed(&'a T),\n    Owned(T),\n    None,\n}"
   },
   "b3GpuGridBroadphase.cpp": {
     "godotengine/godot": "cl_kernel kCalcHashAABB;\ncl_kernel kClearCellStart;\ncl_kernel kFindCellStart;\ncl_kernel kFindOverlappingPairs;\ncl_kernel m_copyAabbsKernel;\ncl_kernel m_sap2Kernel;"
@@ -4118,7 +4119,7 @@
     "codermjlee/mjrefresh": "@interface MJSingleViewController ()\n@property (assign, nonatomic) int count;\n@end"
   },
   "libvips.js": {
-    "lovell/sharp": "const fs = require('fs');\nconst os = require('os');\nconst path = require('path');\nconst spawnSync = require('child_process').spawnSync;\nconst semver = require('semver');\nconst platform = require('./platform');"
+    "lovell/sharp": "const fs = require('fs');\nconst os = require('os');\nconst path = require('path');\nconst stream = require('stream');\nconst zlib = require('zlib');"
   },
   "Lores.swift": {
     "ipader/swiftguide": "let BLACK = UIColor.blackColor()\nlet RED = UIColor.redColor()\nlet BLUE = UIColor.blueColor()\nlet GREEN = UIColor.greenColor()\nlet BROWN = UIColor.brownColor()\nlet CYAN = UIColor.cyanColor()\nlet MAGENTA =  UIColor.magentaColor()"
@@ -4368,7 +4369,7 @@
     "tidalcycles/Tidal": "channel = Event.Channel 0\nnotes = [12 .. 100]\ntime = 3"
   },
   "State.php": {
-    "wordpress/wordpress": "class ParagonIE_Sodium_Core_SecretStream_State\n{\n    /** @var string $key */\n    protected $key;"
+    "wordpress/wordpress": "class ParagonIE_Sodium_Core32_SecretStream_State\n{\n    /** @var string $key */\n    protected $key;"
   },
   "Package.hs": {
     "koka-lang/koka": "Integrate NPM style packages\n-}\n-----------------------------------------------------------------------------\nmodule Compiler.Package( Packages, PackageName\n                       , searchPackages\n                       , discoverPackages\n                       , packageInfoFromDir"
@@ -5363,7 +5364,7 @@
     "gorilla/mux": "type routeRegexpOptions struct {\n\tstrictSlash    bool\n\tuseEncodedPath bool\n}"
   },
   "hud.js": {
-    "philc/vimium": "let findMode = null;"
+    "philc/vimium": "const HUD = {\n  tween: null,\n  hudUI: null,\n  findMode: null,\n  abandon() {\n    if (this.hudUI)\n      this.hudUI.hide(false);"
   },
   "factory.go": {
     "google/cadvisor": "var dockerOnly = flag.Bool(\"docker_only\", false, \"Only report docker containers in addition to root stats\")\nvar disableRootCgroupStats = flag.Bool(\"disable_root_cgroup_stats\", false, \"Disable collecting root Cgroup stats\")"
@@ -5420,7 +5421,7 @@
     "domnikl/designpatternsphp": "class StorageAdapter\n{\n    private array $data = [];"
   },
   "CPS.hs": {
-    "haskell/mtl": "#if MIN_VERSION_transformers(0,5,6)\n-----------------------------------------------------------------------------\n-- |\n-- Module      :  Control.Monad.RWS.Strict\n-- Copyright   :  (c) Andy Gill 2001,\n--                (c) Oregon Graduate Institute of Science and Technology, 2001\n-- License     :  BSD-style (see the file LICENSE)"
+    "haskell/mtl": "#if MIN_VERSION_transformers(0,5,6)\n-----------------------------------------------------------------------------\n-- |\n-- Module      :  Control.Monad.Writer.Strict\n-- Copyright   :  (c) Andy Gill 2001,\n--                (c) Oregon Graduate Institute of Science and Technology, 2001\n-- License     :  BSD-style (see the file LICENSE)"
   },
   "encode.go": {
     "tsenart/vegeta": "const (\n\tencodingCSV  = \"csv\"\n\tencodingGob  = \"gob\"\n\tencodingJSON = \"json\"\n)"
@@ -5677,7 +5678,7 @@
     "geeeeeeeeek/electronic-wechat": "class Common {"
   },
   "change_host_name.rb": {
-    "hashicorp/vagrant": "module redactedPlugins\n  module GuestHaiku\n    module Cap\n      class ChangeHostName\n        def self.change_host_name(machine, name)\n          comm = machine.communicate"
+    "hashicorp/vagrant": "module redactedPlugins\n  module GuestWindows\n    module Cap\n      module ChangeHostName\n        def self.change_host_name(machine, name)\n          change_host_name_and_wait(machine, name, machine.config.vm.graceful_halt_timeout)\n        end"
   },
   "Checkstyle.hs": {
     "hadolint/hadolint": "module redacted.Formatter.Checkstyle\n  ( printResult,\n    formatResult,\n  )\nwhere"
@@ -6895,7 +6896,7 @@
     "haskell-hint/hint": "module redacted.Parsers where"
   },
   "pallet_multisig.rs": {
-    "paritytech/polkadot": "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_multisig::WeightInfo for WeightInfo<T> {\n\tfn as_multi_threshold_1(z: u32, ) -> Weight {\n\t\t(12_476_000 as Weight)\n\t\t\t// Standard Error: 0\n\t\t\t.saturating_add((1_000 as Weight).saturating_mul(z as Weight))\n\t}"
+    "paritytech/polkadot": "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_multisig::WeightInfo for WeightInfo<T> {\n\tfn as_multi_threshold_1(z: u32, ) -> Weight {\n\t\t(12_182_000 as Weight)\n\t\t\t// Standard Error: 0\n\t\t\t.saturating_add((1_000 as Weight).saturating_mul(z as Weight))\n\t}"
   },
   "sqlite_statement.c": {
     "php/php-src": "static int pdo_sqlite_stmt_dtor(pdo_stmt_t *stmt)\n{\n\tpdo_sqlite_stmt *S = (pdo_sqlite_stmt*)stmt->driver_data;"
@@ -7010,7 +7011,7 @@
     "dotnet/sdk": "namespace Microsoft.redacted.ShellShim.Tests\n{\n    public class AppHostShellShimMakerTests : redactedTest\n    {\n        const ushort WindowsGUISubsystem = 0x2;"
   },
   "comments.js": {
-    "nswbmw/n-blog": "const express = require('express')\nconst router = express.Router()"
+    "nswbmw/n-blog": "const marked = require('marked')\nconst Comment = require('../lib/mongo').Comment"
   },
   "Mapping.hs": {
     "wireapp/wire-server": "module Galley.API.Mapping where"
@@ -7638,7 +7639,7 @@
     "ggreer/the_silver_searcher": "const uint8_t XZ_HEADER_MAGIC[6] = { 0xFD, '7', 'z', 'X', 'Z', 0x00 };\nconst uint8_t LZMA_HEADER_SOMETIMES[3] = { 0x5D, 0x00, 0x00 };\n#endif"
   },
   "pallet_proxy.rs": {
-    "paritytech/polkadot": "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_proxy::WeightInfo for WeightInfo<T> {\n\tfn proxy(p: u32, ) -> Weight {\n\t\t(30_904_000 as Weight)\n\t\t\t// Standard Error: 1_000\n\t\t\t.saturating_add((196_000 as Weight).saturating_mul(p as Weight))\n\t\t\t.saturating_add(T::DbWeight::get().reads(1 as Weight))"
+    "paritytech/polkadot": "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_proxy::WeightInfo for WeightInfo<T> {\n\tfn proxy(p: u32, ) -> Weight {\n\t\t(31_560_000 as Weight)\n\t\t\t// Standard Error: 1_000\n\t\t\t.saturating_add((190_000 as Weight).saturating_mul(p as Weight))\n\t\t\t.saturating_add(T::DbWeight::get().reads(1 as Weight))"
   },
   "TodoEditStore.js": {
     "facebook/flux": "class TodoEditStore extends ReduceStore {\n  constructor() {\n    super(TodoDispatcher);\n  }"
@@ -9982,7 +9983,7 @@
     "isocpp/cppcoreguidelines": "def main():\n    \"\"\"\n    This script ended up ugly, so in case somebody wants to reimplement, here is the spec that grew by time."
   },
   "projectdb.py": {
-    "binux/pyspider": "class ProjectDB(BaseProjectDB):\n    \"\"\"ProjectDB loading scripts from local file.\"\"\""
+    "binux/pyspider": "class ProjectDB(BaseProjectDB):\n    __type__ = 'project'"
   },
   "read_launch_plists.py": {
     "drduh/macos-security-and-privacy-guide": "def LoadPlist(filename):\n    \"\"\"Returns plists read with plistlib.\"\"\"\n    try:\n        proc = subprocess.Popen(\n            [\"/usr/bin/plutil\", \"-convert\", \"xml1\", \"-o\", \"-\", filename],\n            stdout=subprocess.PIPE, stderr=subprocess.PIPE)\n        out_data, err_data = proc.communicate()"
@@ -10276,7 +10277,7 @@
     "apache/incubator-superset": "def upgrade():\n    bind = op.get_bind()\n    session = Session(bind=bind)"
   },
   "view.py": {
-    "zulip/zulip": "def api_deskdotcom_webhook(request: HttpRequest, user_profile: UserProfile,\n                           data: str=REQ()) -> HttpResponse:\n    topic = \"Desk.com notification\"\n    check_send_webhook_message(request, user_profile, topic, data)\n    return json_success()"
+    "zulip/zulip": "def api_helloworld_webhook(\n        request: HttpRequest, user_profile: UserProfile,\n        payload: Dict[str, Iterable[Dict[str, Any]]]=REQ(argument_type='body'),\n) -> HttpResponse:"
   },
   "init_security.py": {
     "apache/airflow": "def init_xframe_protection(app):\n    \"\"\"\n    Add X-Frame-Options header. Use it to avoid click-jacking attacks, by ensuring that their content is not\n    embedded into other sites."
