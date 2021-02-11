@@ -2757,7 +2757,7 @@
       "const App = require('./node/App')\nconst { version } = require('../package')\nconst { logger } = require('@redacted/shared-utils')"
     ],
     "vuejs/vue-cli": [
-      "const configDescriptor = require('./configDescriptor')\nconst taskDescriptor = require('./taskDescriptor')",
+      "const routes<% if (hasTypeScript) { %>: Array<RouteRecordRaw><% } %> = [\n  {\n    path: '/',\n    name: 'Home',\n    component: Home\n  },\n  {",
       "const routes: Array<RouteConfig> = [\n<%_ } else { _%>\nconst routes = [\n<%_ } _%>\n  {\n    path: '/',\n    name: 'Home',"
     ],
     "nodemailer/nodemailer": [
@@ -2983,7 +2983,8 @@
   },
   "Address.php": {
     "fzaninotto/faker": [
-      "class Address extends \\redacted\\Provider\\es_ES\\Address\n{\n    protected static $cityPrefix = array('San', 'Santa', 'Puerto', 'Valle', 'Villa', 'Parroquia', 'El', 'Los', 'La', 'Las');\n    protected static $citySuffix = array('del Valle', 'de Mara', 'de Altagracia', 'de Asis', 'del Tuy', 'de Mata');\n    protected static $buildingNumber = array('###', '##', '#');\n    protected static $streetPrefix = array(\n        'Calle', 'Avenida', 'Av.', 'Cl.', 'Carretera', 'Callejón', 'Vereda'"
+      "class Address extends \\redacted\\Provider\\es_ES\\Address\n{\n    protected static $cityPrefix = array('San', 'Santa', 'Puerto', 'Valle', 'Villa', 'Parroquia', 'El', 'Los', 'La', 'Las');\n    protected static $citySuffix = array('del Valle', 'de Mara', 'de Altagracia', 'de Asis', 'del Tuy', 'de Mata');\n    protected static $buildingNumber = array('###', '##', '#');\n    protected static $streetPrefix = array(\n        'Calle', 'Avenida', 'Av.', 'Cl.', 'Carretera', 'Callejón', 'Vereda'",
+      "class Address extends \\redacted\\Provider\\Address\n{\n    protected static $citySuffix = array('қаласы');"
     ]
   },
   "transaction.go": {
@@ -5526,7 +5527,7 @@
       "const redacted = require('..');\nconst app = new redacted();"
     ],
     "tryghost/ghost": [
-      "function SessionMiddleware({sessionService}) {\n    async function createSession(req, res, next) {\n        try {\n            await sessionService.createSessionForUser(req, res, req.user);\n            res.sendStatus(201);\n        } catch (err) {\n            next(err);"
+      "function SessionMiddleware({sessionService}) {\n    async function createSession(req, res, next) {\n        try {\n            await sessionService.createSessionForUser(req, res, req.user);\n            res.sendStatus(201);\n        } catch (err) {\n            next(err);\n        }\n    }\n\n    async function destroySession(req, res, next) {\n        try {\n            await sessionService.destroyCurrentSession(req);\n            res.sendStatus(204);\n        } catch (err) {\n            next(err);\n        }\n    }\n\n    async function authenticate(req, res, next) {\n        try {\n            const user = await sessionService.getUserForSession(req, res);\n            if (user) {\n                // Do not nullify `req.user` as it might have been already set\n                // in a previous middleware (authorize middleware).\n                req.user = user;\n            }\n            next();\n        } catch (err) {\n            next(err);\n        }\n    }\n\n    return {\n        createSession: createSession,\n        destroySession: destroySession,\n        authenticate: authenticate\n    };\n}\n\nmodule.exports = SessionMiddleware;"
     ],
     "hubotio/hubot": [
       "const async = require('async')"
@@ -5859,7 +5860,7 @@
   },
   "redacted-node.js": {
     "gatsbyjs/gatsby": [
-      "const redactedThemeComponentShadowingResolverPlugin = require(`.`)"
+      "const Promise = require(`bluebird`)\nconst { fetchNodesFromSearch } = require(`./fetch`)"
     ]
   },
   "tree.hs": {
@@ -6564,7 +6565,7 @@
   },
   "Extended.hs": {
     "k0ral/hbro": [
-      "module System.Glib.Attributes.Extended where"
+      "module Control.Monad.Reader.Extended\n    ( module X\n    , Has(..)\n    , ask\n    , asks\n    ) where"
     ]
   },
   "inject-babel-helpers.js": {
@@ -9680,7 +9681,8 @@
   },
   "CPS.hs": {
     "haskell/mtl": [
-      "#if MIN_VERSION_transformers(0,5,6)\n-----------------------------------------------------------------------------\n-- |\n-- Module      :  Control.Monad.Writer.Strict\n-- Copyright   :  (c) Andy Gill 2001,\n--                (c) Oregon Graduate Institute of Science and Technology, 2001\n-- License     :  BSD-style (see the file LICENSE)"
+      "#if MIN_VERSION_transformers(0,5,6)\n-----------------------------------------------------------------------------\n-- |\n-- Module      :  Control.Monad.Writer.Strict\n-- Copyright   :  (c) Andy Gill 2001,\n--                (c) Oregon Graduate Institute of Science and Technology, 2001\n-- License     :  BSD-style (see the file LICENSE)",
+      "#if MIN_VERSION_transformers(0,5,6)\n-----------------------------------------------------------------------------\n-- |\n-- Module      :  Control.Monad.RWS.Strict\n-- Copyright   :  (c) Andy Gill 2001,\n--                (c) Oregon Graduate Institute of Science and Technology, 2001\n-- License     :  BSD-style (see the file LICENSE)"
     ]
   },
   "encode.go": {
@@ -10111,7 +10113,7 @@
   },
   "change_host_name.rb": {
     "hashicorp/vagrant": [
-      "module redactedPlugins\n  module GuestHaiku\n    module Cap\n      class ChangeHostName\n        def self.change_host_name(machine, name)\n          comm = machine.communicate"
+      "module redactedPlugins\n  module GuestWindows\n    module Cap\n      module ChangeHostName\n        def self.change_host_name(machine, name)\n          change_host_name_and_wait(machine, name, machine.config.vm.graceful_halt_timeout)\n        end"
     ]
   },
   "Checkstyle.hs": {
@@ -10994,7 +10996,8 @@
   },
   "writer.go": {
     "sirupsen/logrus": [
-      "func (logger *Logger) Writer() *io.PipeWriter {\n\treturn logger.WriterLevel(InfoLevel)\n}"
+      "func (logger *Logger) Writer() *io.PipeWriter {\n\treturn logger.WriterLevel(InfoLevel)\n}",
+      "type Hook struct {\n\tWriter    io.Writer\n\tLogLevels []log.Level\n}"
     ]
   },
   "Theme.hs": {

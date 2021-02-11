@@ -135,7 +135,7 @@ async function getState() {
         for (let i = 0; i < existingEntries.length; i++) {
             const existingEntry = existingEntries[i];
 
-            if (code.includes(existingEntry) || existingEntries.includes(code)) {
+            if (code.includes(existingEntry) || existingEntry.includes(code)) {
                 replaced = true;
 
                 if (code.length > existingEntry.length) {
