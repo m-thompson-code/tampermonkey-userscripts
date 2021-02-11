@@ -134,11 +134,15 @@ async function getState() {
         for (let i = 0; i < existingEntries.length; i++) {
             const existingEntry = existingEntries[i];
 
-            if (code.includes(existingEntry) && code.length > existingEntry.length) {
-                existingEntries[i] = code;
+            if (code.includes(existingEntry)) {
                 replaced = true;
-                await saveAnswerBank(answerBank);
-                console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
+
+                if (code.length > existingEntry.length) {
+                    existingEntries[i] = code;
+                    await saveAnswerBank(answerBank);
+                    console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
+                }
+                
                 break;
             }
         }

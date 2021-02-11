@@ -15742,7 +15742,7 @@
   },
   "train_share_states.cpp": {
     "microsoft/lightgbm": [
-      "namespace redacted {"
+      "namespace redacted {\n\nMultiValBinWrapper::MultiValBinWrapper(MultiValBin* bin, data_size_t num_data,\n  const std::vector<int>& feature_groups_contained):\n    feature_groups_contained_(feature_groups_contained) {\n  num_threads_ = OMP_NUM_THREADS();\n  num_data_ = num_data;\n  multi_val_bin_.reset(bin);\n  if (bin == nullptr) {\n    return;\n  }\n  num_bin_ = bin->num_bin();\n  num_bin_aligned_ = (num_bin_ + kAlignedSize - 1) / kAlignedSize * kAlignedSize;\n}\n\nvoid MultiValBinWrapper::InitTrain(const std::vector<int>& group_feature_start,\n  const std::vector<std::unique_ptr<FeatureGroup>>& feature_groups,\n  const std::vector<int8_t>& is_feature_used,\n  const data_size_t* bagging_use_indices,\n  data_size_t bagging_indices_cnt) {\n  is_use_subcol_ = false;\n  if (multi_val_bin_ == nullptr) {\n    return;\n  }\n  CopyMultiValBinSubset(group_feature_start, feature_groups,\n    is_feature_used, bagging_use_indices, bagging_indices_cnt);\n  const auto cur_multi_val_bin = (is_use_subcol_ || is_use_subrow_)\n        ? multi_val_bin_subset_.get()\n        : multi_val_bin_.get();\n  if (cur_multi_val_bin != nullptr) {\n    num_bin_ = cur_multi_val_bin->num_bin();\n    num_bin_aligned_ = (num_bin_ + kAlignedSize - 1) / kAlignedSize * kAlignedSize;\n    auto num_element_per_row = cur_multi_val_bin->num_element_per_row();\n    min_block_size_ = std::min<int>(static_cast<int>(0.3f * num_bin_ /\n      (num_element_per_row + kZeroThreshold)) + 1, 1024);\n    min_block_size_ = std::max<int>(min_block_size_, 32);\n  }\n}"
     ]
   },
   "hitTest.js": {
