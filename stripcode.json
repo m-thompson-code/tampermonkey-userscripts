@@ -713,7 +713,8 @@
       "const fs = require(\"fs\");\nconst obj = require(\"through2\").obj;\nconst pager = require(\"default-pager\");\nconst msee = require(\"msee\");\nconst join = require(\"path\").join;\nconst boxen = require(\"boxen\");\nconst chalk = require(\"chalk\");"
     ],
     "maxwellito/vivus": [
-      "function Pathformer(element) {\n  // Test params\n  if (typeof element === 'undefined') {\n    throw new Error('Pathformer [constructor]: \"element\" parameter is required');\n  }"
+      "function Pathformer(element) {\n  // Test params\n  if (typeof element === 'undefined') {\n    throw new Error('Pathformer [constructor]: \"element\" parameter is required');\n  }",
+      "function redacted(element, options, callback) {\n  setupEnv();"
     ],
     "designmodo/flat-ui": [
       "function focusable( element, isTabIndexNotNaN ) {\n\tvar map, mapName, img,\n\t\tnodeName = element.nodeName.toLowerCase();\n\tif ( \"area\" === nodeName ) {\n\t\tmap = element.parentNode;\n\t\tmapName = map.name;\n\t\tif ( !element.href || !mapName || map.nodeName.toLowerCase() !== \"map\" ) {"
@@ -11182,7 +11183,7 @@
   },
   "semver.js": {
     "bower/bower": [
-      "function maxSatisfying(versions, range, strictMatch) {\n    var version;\n    var filteredVersions;"
+      "function maxSatisfying(versions, range, strictMatch) {\n    var version;\n    var filteredVersions;\n\n    // Filter only valid versions, since semver.maxSatisfying() throws an error\n    versions = versions.filter(function(version) {\n        return semver.valid(version);\n    });\n\n    // Exact version & range match\n    if (semver.valid(range)) {\n        version = mout.array.find(versions, function(version) {\n            return version === range;\n        });\n        if (version) {\n            return version;\n        }\n    }\n\n    range = typeof range === 'string' ? range.trim() : range;\n\n    // When strict match is enabled give priority to non-pre-releases\n    // We do this by filtering every pre-release version\n    if (strictMatch) {\n        filteredVersions = versions.map(function(version) {\n            return !isPreRelease(version) ? version : null;\n        });\n\n        version = semver.maxSatisfying(filteredVersions, range);\n        if (version) {\n            return version;\n        }\n    }\n\n    // Fallback to regular semver max satisfies\n    return semver.maxSatisfying(versions, range);\n}\n\nfunction maxSatisfyingIndex(versions, range, strictMatch) {\n    var version = maxSatisfying(versions, range, strictMatch);\n\n    if (!version) {\n        return -1;\n    }\n\n    return versions.indexOf(version);\n}\n\nfunction clean(version) {\n    var parsed = semver.parse(version);\n\n    if (!parsed) {\n        return null;\n    }\n\n    // Keep builds!\n    return (\n        parsed.version +\n        (parsed.build.length ? '+' + parsed.build.join('.') : '')\n    );\n}\n\nfunction isPreRelease(version) {\n    var parsed = semver.parse(version);\n    return parsed && parsed.prerelease && parsed.prerelease.length;\n}\n\n// Export a semver like object but with our custom functions\nmout.object.mixIn(module.exports, semver, {\n    maxSatisfying: maxSatisfying,\n    maxSatisfyingIndex: maxSatisfyingIndex,\n    clean: clean,\n    valid: clean\n});"
     ]
   },
   "SlotChainProvider.java": {

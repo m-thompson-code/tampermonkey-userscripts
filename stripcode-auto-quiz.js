@@ -205,7 +205,7 @@ async function getState() {
 
         if (uiSaysAnswerIsIncorrect) {
             console.error("Got a wrong answer");
-            console.error(answers, correctAnswerDatas);
+            // console.error(answers, correctAnswerDatas);
             console.error(answers.map(a => a.text), correctAnswerDatas.slice(0));
             console.error(filename, answerOnScreen.text);
 
