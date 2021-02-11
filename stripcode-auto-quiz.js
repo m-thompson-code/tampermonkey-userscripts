@@ -156,63 +156,18 @@ async function getState() {
             console.log(" ~ added new entry to answer bank", { filename, text: answerOnScreen.text, code });
         }
 
-        // // Update existing entry if the incorrect answer was selected
-        // if (existingEntry) {
-        //     if (existingEntry.length < code || uiSaysAnswerIsIncorrect) {
-        //         answerBank[filename][answerOnScreen.text] = code;
-        //         console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
-        //     }
-        // } else {
-        //     // Add new entry to answerBank
-        //     // const newAnswerToAdd = {
-        //     //     filename: filename,
-        //     //     code: code,
-        //     //     correctAnswer: answerOnScreen.text,
-        //     // };
-
-        //     if (filename === answerOnScreen.text) {
-        //         debugger;
-        //         throw new Error("filename shouldnt match repo");
-        //     }
-
-        //     answerBank[filename] = answerBank[filename] || {};
-        //     answerBank[filename][answerOnScreen.text] = code;
-
-        //     // answerBank.push(newAnswerToAdd);
-        //     console.log(" ~ added new entry to answer bank", { filename, text: answerOnScreen.text, code });
-        // }
-        // // if (existingEntry) {
-        // //     if (existingEntry.code.length < code || uiSaysAnswerIsIncorrect) {
-        // //         existingEntry.code = code;
-        // //         console.log(" ~ updated entry to answer bank", existingEntry);
-        // //     }
-        // // } else {
-        // //     // Add new entry to answerBank
-        // //     const newAnswerToAdd = {
-        // //         filename: filename,
-        // //         code: code,
-        // //         correctAnswer: answerOnScreen.text,
-        // //     };
-
-        // //     answerBank.push(newAnswerToAdd);
-        // //     console.log(" ~ added new entry to answer bank", newAnswerToAdd);
-        // // }
-
-        // // Update local file of answerBank
-        // await saveAnswerBank(answerBank);
-
-        lastCodeSeen = code;
-
         if (uiSaysAnswerIsIncorrect) {
             console.error("Got a wrong answer");
             // console.error(answers, correctAnswerDatas);
             console.error(answers.map(a => a.text), correctAnswerDatas.slice(0));
             console.error(filename, answerOnScreen.text);
 
-            if (!updatedAnswerBank) {
+            if (!updatedAnswerBank && lastCodeSeen !== code) {
                 debugger;
             }
         }
+
+        lastCodeSeen = code;
 
         nextButton.click();
         

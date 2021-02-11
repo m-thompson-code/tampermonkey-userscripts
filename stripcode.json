@@ -3452,7 +3452,8 @@
   },
   "kay_auto.rs": {
     "citybound/citybound": [
-      "impl Actor for NeighboringTownTrade {\n    type ID = NeighboringTownTradeID;"
+      "impl Actor for NeighboringTownTrade {\n    type ID = NeighboringTownTradeID;",
+      "impl Actor for TaskEndScheduler {\n    type ID = TaskEndSchedulerID;"
     ]
   },
   "matchRoutes.js": {
