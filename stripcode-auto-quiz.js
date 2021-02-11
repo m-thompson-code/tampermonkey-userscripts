@@ -144,8 +144,6 @@ async function getState() {
                     updatedAnswerBank = true;
                     console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
                 }
-                
-                break;
             }
         }
 

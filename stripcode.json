@@ -1265,7 +1265,8 @@
   },
   "main.go": {
     "astaxie/build-web-application-with-golang": [
-      "type Element interface{}\ntype List []Element"
+      "type Element interface{}\ntype List []Element",
+      "func show_basic_struct() {\n\tfmt.Println(\"\\nshow_basic_struct()\")\n\ttype person struct {\n\t\tname string\n\t\tage  int\n\t}"
     ],
     "joewalnes/websocketd": [
       "func logfunc(l *libredacted.LogScope, level libredacted.LogLevel, levelName string, category string, msg string, args ...interface{}) {\n\tif level < l.MinLevel {\n\t\treturn\n\t}\n\tfullMsg := fmt.Sprintf(msg, args...)"
@@ -3303,7 +3304,8 @@
   },
   "abstract_factory.swift": {
     "ochococo/design-patterns-in-swift": [
-      "/*:\n🌰 抽象工厂（Abstract Factory）\n-------------"
+      "/*:\n🌰 抽象工厂（Abstract Factory）\n-------------",
+      "/*:\n🌰 Abstract Factory\n-------------------"
     ]
   },
   "GuiRecords.hs": {
