@@ -15,6 +15,7 @@ let fileHandle;
 let answerBank = {};
 
 let lastCodeSeen = "";
+let lastCorrectedCode = "";
 
 (function() {
     'use strict';
@@ -143,6 +144,7 @@ async function getState() {
                     await saveAnswerBank(answerBank);
                     updatedAnswerBank = true;
                     console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
+                    lastCorrectedCode = code;
                 }
             }
         }
@@ -152,10 +154,11 @@ async function getState() {
             await saveAnswerBank(answerBank);
             updatedAnswerBank = true;
             console.log(" ~ added new entry to answer bank", { filename, text: answerOnScreen.text, code });
+            lastCorrectedCode = code;
         }
 
         if (uiSaysAnswerIsIncorrect) {
-            if (lastCodeSeen !== code) {
+            if (lastCorrectedCode !== code) {
                 console.error("Got a wrong answer");
                 // console.error(answers, correctAnswerDatas);
                 console.error(answers.map(a => a.text), correctAnswerDatas.slice(0));
@@ -172,6 +175,8 @@ async function getState() {
         nextButton.click();
         
         return;
+    } else {
+        lastCorrectedCode = "";
     }
 
     // If there's more than one possible correct answer based on the answer bank, skip picking one

@@ -2765,7 +2765,8 @@
     ],
     "vuejs/vue-cli": [
       "const routes<% if (hasTypeScript) { %>: Array<RouteRecordRaw><% } %> = [\n  {\n    path: '/',\n    name: 'Home',\n    component: Home\n  },\n  {",
-      "const routes: Array<RouteConfig> = [\n<%_ } else { _%>\nconst routes = [\n<%_ } _%>\n  {\n    path: '/',\n    name: 'Home',"
+      "const routes: Array<RouteConfig> = [\n<%_ } else { _%>\nconst routes = [\n<%_ } _%>\n  {\n    path: '/',\n    name: 'Home',",
+      "const configDescriptor = require('./configDescriptor')\nconst taskDescriptor = require('./taskDescriptor')"
     ],
     "nodemailer/nodemailer": [
       "const Transform = require('stream').Transform;"
@@ -5871,7 +5872,8 @@
   },
   "redacted-node.js": {
     "gatsbyjs/gatsby": [
-      "const Promise = require(`bluebird`)\nconst { fetchNodesFromSearch } = require(`./fetch`)"
+      "const Promise = require(`bluebird`)\nconst { fetchNodesFromSearch } = require(`./fetch`)",
+      "const redactedThemeComponentShadowingResolverPlugin = require(`.`)"
     ]
   },
   "tree.hs": {
@@ -6576,7 +6578,8 @@
   },
   "Extended.hs": {
     "k0ral/hbro": [
-      "module Control.Monad.Reader.Extended\n    ( module X\n    , Has(..)\n    , ask\n    , asks\n    ) where"
+      "module Control.Monad.Reader.Extended\n    ( module X\n    , Has(..)\n    , ask\n    , asks\n    ) where",
+      "module System.Glib.Attributes.Extended where"
     ]
   },
   "inject-babel-helpers.js": {
@@ -10124,7 +10127,8 @@
   },
   "change_host_name.rb": {
     "hashicorp/vagrant": [
-      "module redactedPlugins\n  module GuestWindows\n    module Cap\n      module ChangeHostName\n        def self.change_host_name(machine, name)\n          change_host_name_and_wait(machine, name, machine.config.vm.graceful_halt_timeout)\n        end"
+      "module redactedPlugins\n  module GuestWindows\n    module Cap\n      module ChangeHostName\n        def self.change_host_name(machine, name)\n          change_host_name_and_wait(machine, name, machine.config.vm.graceful_halt_timeout)\n        end",
+      "module redactedPlugins\n  module GuestHaiku\n    module Cap\n      class ChangeHostName\n        def self.change_host_name(machine, name)\n          comm = machine.communicate"
     ]
   },
   "Checkstyle.hs": {
