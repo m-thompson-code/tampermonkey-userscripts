@@ -75,7 +75,7 @@ async function updateStateLoop() {
 
     loopTimeout = setTimeout(() => {
         updateStateLoop();
-    }, 1000);
+    }, 0);
 }
 
 async function getState() {

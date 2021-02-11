@@ -4046,7 +4046,8 @@
   },
   "generate.hs": {
     "haskell-servant/servant-elm": [
-      "defaultOptions, defElmImports, defElmOptions,\n                               deriveBoth, generateElmModuleWith)"
+      "defaultOptions, defElmImports, defElmOptions,\n                               deriveBoth, generateElmModuleWith)",
+      "Proxy (Proxy), UrlPrefix(Static), defaultOptions,\n                               defElmImports, defElmOptions, deriveBoth,\n                               generateElmModuleWith)"
     ],
     "purescript/purescript": [
       "#!/usr/bin/env stack\n-- stack --resolver lts-13.12 script"
