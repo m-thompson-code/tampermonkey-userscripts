@@ -264,8 +264,8 @@ function getCorrectAnswerDatas(filename, code, answers) {
         for (const codeSnippet of codeSnippets) {
             if (codeSnippet.includes(code)) {
                 correctAnswerDatas.push(answer.text);
+                break;
             }
-            break;
         }
     }
 
