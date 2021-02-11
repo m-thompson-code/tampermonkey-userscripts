@@ -75,7 +75,7 @@ async function updateStateLoop() {
 
     loopTimeout = setTimeout(() => {
         updateStateLoop();
-    }, 500);
+    }, 1000);
 }
 
 async function getState() {
@@ -119,7 +119,9 @@ async function getState() {
         const answerOnScreen = findCorrectAnswer(answers);
 
         // const existingEntry = answerBank.find(entry => entry.filename === filename && entry.correctAnswer === answerOnScreen.text);
-        const existingEntries = answerBank[filename]?.[answerOnScreen.text] || [];//.find(entry => entry.filename === filename && entry.correctAnswer === answerOnScreen.text);
+        answerBank[filename] = answerBank[filename] || {};
+        answerBank[filename][answerOnScreen.text] = answerBank[filename][answerOnScreen.text] || [];
+        const existingEntries = answerBank[filename][answerOnScreen.text];//.find(entry => entry.filename === filename && entry.correctAnswer === answerOnScreen.text);
 
         if (filename === answerOnScreen.text) {
             debugger;
@@ -128,11 +130,12 @@ async function getState() {
 
         // Update existing entry if the incorrect answer was selected
         let replaced = false;
+
         for (let i = 0; i < existingEntries.length; i++) {
             const existingEntry = existingEntries[i];
 
-            if (code.includes(existingEntry)) {
-                answerBank[filename][answerOnScreen.text][i] = code;
+            if (code.includes(existingEntry) && code.length > existingEntry.length) {
+                existingEntries[i] = code;
                 replaced = true;
                 await saveAnswerBank(answerBank);
                 console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
@@ -141,8 +144,7 @@ async function getState() {
         }
 
         if (!replaced) {
-            answerBank[filename]?.[answerOnScreen.text] = answerBank[filename]?.[answerOnScreen.text] || [];
-            answerBank[filename]?.[answerOnScreen.text].push(code);
+            existingEntries.push(code);
             await saveAnswerBank(answerBank);
             console.log(" ~ added new entry to answer bank", { filename, text: answerOnScreen.text, code });
         }
@@ -197,6 +199,8 @@ async function getState() {
         if (uiSaysAnswerIsIncorrect) {
             console.error("Got a wrong answer");
             console.error(answers, correctAnswerDatas);
+            console.error(answers.map(a => a.text), correctAnswerDatas.slice(0));
+            console.error(filename, answerOnScreen.text, code);
         }
 
         nextButton.click();
