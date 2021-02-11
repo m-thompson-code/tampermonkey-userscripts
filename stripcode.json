@@ -88,7 +88,8 @@
       "main :: IO ()\nmain = do\n  n <- System.Environment.getArgs\n  case n of\n    [\"01\"] -> Ex01StaticString.StaticString.main\n    [\"02\"] -> Ex02Echo.Echo.main\n    [\"03\"] -> Ex03CaseMatch.CaseMatch.main"
     ],
     "dmjio/miso": [
-      "module Main where\n\nimport Data.Proxy\nimport Servant.API\n#if MIN_VERSION_servant(0,14,1)\nimport Servant.Links\n#elif MIN_VERSION_servant(0,10,0)\nimport Servant.Utils.Links\n#endif"
+      "module Main where\n\nimport Data.Proxy\nimport Servant.API\n#if MIN_VERSION_servant(0,14,1)\nimport Servant.Links\n#elif MIN_VERSION_servant(0,10,0)\nimport Servant.Utils.Links\n#endif",
+      "module Main where\n\nimport           redacted hiding (asyncCallback)\nimport           redacted.String\nimport           Control.Concurrent.MVar"
     ],
     "reflex-frp/reflex": [
       "module Main where"
@@ -243,7 +244,8 @@
       "html_logo_url = \"https://raw.githubusercontent.com/redacted/redacted/master/assets/logo-square.png\"\n)]\n//! <p><fullname>AWS CloudHSM Service</fullname> <p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p></p>\n//!\n//! If you're using the service, you're probably looking for [CloudHsmClient](struct.CloudHsmClient.html) and [CloudHsm](trait.CloudHsm.html).",
       "html_logo_url = \"https://raw.githubusercontent.com/redacted/redacted/master/assets/logo-square.png\"\n)]\n//! <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications. </p> <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you can use all the existing plugins and tooling from the Kubernetes community. Applications running on Amazon EKS are fully compatible with applications running on any standard Kubernetes environment, whether running in on-premises data centers or public clouds. This means that you can easily migrate any standard Kubernetes application to Amazon EKS without any code modification required.</p>\n//!\n//! If you're using the service, you're probably looking for [EksClient](struct.EksClient.html) and [Eks](trait.Eks.html).",
       "html_logo_url = \"https://raw.githubusercontent.com/redacted/redacted/master/assets/logo-square.png\"\n)]\n//! <p><p>Welcome to the AWS Device Farm API documentation, which contains APIs for:</p> <ul> <li> <p>Testing on desktop browsers</p> <p> Device Farm makes it possible for you to test your web applications on desktop browsers using Selenium. The APIs for desktop browser testing contain <code>TestGrid</code> in their names. For more information, see <a href=\"https://docs.aws.amazon.com/devicefarm/latest/testgrid/\">Testing Web Applications on Selenium with Device Farm</a>.</p> </li> <li> <p>Testing on real mobile devices</p> <p>Device Farm makes it possible for you to test apps on physical phones, tablets, and other devices in the cloud. For more information, see the <a href=\"https://docs.aws.amazon.com/devicefarm/latest/developerguide/\">Device Farm Developer Guide</a>.</p> </li> </ul></p>\n//!\n//! If you're using the service, you're probably looking for [DeviceFarmClient](struct.DeviceFarmClient.html) and [DeviceFarm](trait.DeviceFarm.html).",
-      "html_logo_url = \"https://raw.githubusercontent.com/redacted/redacted/master/assets/logo-square.png\"\n)]\n//! <p><fullname>AWS Auto Scaling</fullname> <p>Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling and predictive scaling for your resources using scaling plans. Use this service in conjunction with the Amazon EC2 Auto Scaling, Application Auto Scaling, Amazon CloudWatch, and AWS CloudFormation services. </p> <p>Currently, predictive scaling is only available for Amazon EC2 Auto Scaling groups.</p> <p>For more information about AWS Auto Scaling, including information about granting IAM users required permissions for AWS Auto Scaling actions, see the <a href=\"https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html\">AWS Auto Scaling User Guide</a>.</p></p>\n//!\n//! If you're using the service, you're probably looking for [AutoscalingPlansClient](struct.AutoscalingPlansClient.html) and [AutoscalingPlans](trait.AutoscalingPlans.html)."
+      "html_logo_url = \"https://raw.githubusercontent.com/redacted/redacted/master/assets/logo-square.png\"\n)]\n//! <p><fullname>AWS Auto Scaling</fullname> <p>Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling and predictive scaling for your resources using scaling plans. Use this service in conjunction with the Amazon EC2 Auto Scaling, Application Auto Scaling, Amazon CloudWatch, and AWS CloudFormation services. </p> <p>Currently, predictive scaling is only available for Amazon EC2 Auto Scaling groups.</p> <p>For more information about AWS Auto Scaling, including information about granting IAM users required permissions for AWS Auto Scaling actions, see the <a href=\"https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html\">AWS Auto Scaling User Guide</a>.</p></p>\n//!\n//! If you're using the service, you're probably looking for [AutoscalingPlansClient](struct.AutoscalingPlansClient.html) and [AutoscalingPlans](trait.AutoscalingPlans.html).",
+      "html_logo_url = \"https://raw.githubusercontent.com/redacted/redacted/master/assets/logo-square.png\"\n)]\n//! <p>AWS IAM Access Analyzer helps identify potential resource-access risks by enabling you to identify any policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your AWS environment. An external principal can be another AWS account, a root user, an IAM user or role, a federated user, an AWS service, or an anonymous user. This guide describes the AWS IAM Access Analyzer operations that you can call programmatically. For general information about Access Analyzer, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html\">AWS IAM Access Analyzer</a> in the <b>IAM User Guide</b>.</p> <p>To start using Access Analyzer, you first need to create an analyzer.</p>\n//!\n//! If you're using the service, you're probably looking for [AccessAnalyzerClient](struct.AccessAnalyzerClient.html) and [AccessAnalyzer](trait.AccessAnalyzer.html)."
     ],
     "rust-lang/rls": [
       "extern crate env_logger;\nextern crate rustc_driver;\nextern crate rustc_interface;\nextern crate rustc_save_analysis;\nextern crate rustc_session;\nextern crate rustc_span;",
@@ -341,7 +343,8 @@
     "usablica/intro.js": [
       "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Basic usage</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"redacted - Better introductions for websites and features with a step-by-step guide for your projects.\">",
       "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Disable Interaction</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"redacted - Better introductions for websites and features with a step-by-step guide for your projects.\">",
-      "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Custom CSS Class</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"redacted - Better introductions for websites and features with a step-by-step guide for your projects.\">"
+      "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Custom CSS Class</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"redacted - Better introductions for websites and features with a step-by-step guide for your projects.\">",
+      "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Multi-page introduction, Page 1</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"redacted - Better introductions for websites and features with a step-by-step guide for your projects.\">"
     ],
     "google/web-starter-kit": [
       "<!doctype html>\n<html lang=\"\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
@@ -895,7 +898,8 @@
     ],
     "vuejs/vue-router": [
       "const router = new VueRouter({\n  mode: 'history',\n  base: __dirname,\n  routes: [\n    { path: '/' },\n    // params are denoted with a colon \":\"\n    { path: '/params/:foo/:bar' },",
-      "const Home = { template: '<div>home</div>' }\nconst Foo = { template: '<div>foo</div>' }\nconst Bar = {\n  template: `\n    <div>\n      bar\n      <div style=\"height:500px\"></div>"
+      "const Home = { template: '<div>home</div>' }\nconst Foo = { template: '<div>foo</div>' }\nconst Bar = {\n  template: `\n    <div>\n      bar\n      <div style=\"height:500px\"></div>",
+      "let numPopstateListeners = 0\nconst listenerCountDiv = document.getElementById('popcount')\nlistenerCountDiv.textContent = 0"
     ],
     "microsoft/web-dev-for-beginners": [
       "class EventEmitter {\n\tconstructor() {\n\t\tthis.listeners = {};\n\t}",
@@ -1256,7 +1260,8 @@
   },
   "Strict.hs": {
     "haskell/mtl": [
-      "module Control.Monad.RWS.Strict (\n    -- * The RWS monad\n    RWS,\n    rws,\n    runRWS,\n    evalRWS,\n    execRWS,"
+      "module Control.Monad.RWS.Strict (\n    -- * The RWS monad\n    RWS,\n    rws,\n    runRWS,\n    evalRWS,\n    execRWS,",
+      "module Control.Monad.State.Strict (\n    -- * MonadState class\n    MonadState(..),\n    modify,\n    modify',\n    gets,\n    -- * The State monad"
     ],
     "suhailshergill/extensible-effects": [
       "module Control.Eff.Reader.Strict ( Reader (..)\n                                 , withReader\n                                 , ask\n                                 , local\n                                 , reader\n                                 , runReader\n                                 ) where",
@@ -2447,7 +2452,8 @@
     ],
     "eckyputrady/haskell-scotty-realworld-example-app": [
       "module Platform.HTTP\n      ( main\n      ) where",
-      "module Feature.Comment.HTTP\n      ( routes\n      , Service(..)\n      ) where"
+      "module Feature.Comment.HTTP\n      ( routes\n      , Service(..)\n      ) where",
+      "module Feature.Common.HTTP where"
     ]
   },
   "openssl_md5_dgst.cpp": {
@@ -2769,7 +2775,8 @@
     ],
     "jorgebucaran/hyperapp": [
       "const timeout = (dispatch, props) =>\n  setTimeout(() => dispatch(props.action), props.delay)",
-      "const EMPTY_ARR = []"
+      "const EMPTY_ARR = []",
+      "const fx = (argsToProps, fx) => (...args) => [fx, argsToProps(args)]"
     ],
     "webtorrent/webtorrent": [
       "const { EventEmitter } = require('events')\nconst concat = require('simple-concat')\nconst createTorrent = require('create-torrent')\nconst debug = require('debug')('redacted')\nconst DHT = require('bittorrent-dht/client') // browser exclude\nconst loadIPSet = require('load-ip-set') // browser exclude\nconst parallel = require('run-parallel')"
@@ -2859,7 +2866,7 @@
   },
   "rewriter.js": {
     "typicode/json-server": [
-      "const express = require('express')\nconst rewrite = require('express-urlrewrite')"
+      "const express = require('express')\nconst rewrite = require('express-urlrewrite')\n\nmodule.exports = (routes) => {\n  const router = express.Router()\n\n  router.get('/__rules', (req, res) => {\n    res.json(routes)\n  })\n\n  Object.keys(routes).forEach((key) => {\n    router.use(rewrite(key, routes[key]))\n  })\n\n  return router\n}"
     ]
   },
   "Fragment.hs": {
@@ -2929,7 +2936,8 @@
   },
   "connection-manager.js": {
     "sequelize/sequelize": [
-      "const AbstractConnectionManager = require('../abstract/connection-manager');\nconst redactedErrors = require('../../errors');\nconst { logger } = require('../../utils/logger');\nconst DataTypes = require('../../data-types').mysql;\nconst momentTz = require('moment-timezone');\nconst debug = logger.debugContext('connection:mysql');\nconst parserStore = require('../parserStore')('mysql');"
+      "const AbstractConnectionManager = require('../abstract/connection-manager');\nconst redactedErrors = require('../../errors');\nconst { logger } = require('../../utils/logger');\nconst DataTypes = require('../../data-types').mysql;\nconst momentTz = require('moment-timezone');\nconst debug = logger.debugContext('connection:mysql');\nconst parserStore = require('../parserStore')('mysql');",
+      "const semver = require('semver');\nconst AbstractConnectionManager = require('../abstract/connection-manager');\nconst redactedErrors = require('../../errors');\nconst { logger } = require('../../utils/logger');\nconst DataTypes = require('../../data-types').mariadb;\nconst momentTz = require('moment-timezone');\nconst debug = logger.debugContext('connection:mariadb');"
     ]
   },
   "trashcan.go": {
@@ -2985,7 +2993,8 @@
   "Address.php": {
     "fzaninotto/faker": [
       "class Address extends \\redacted\\Provider\\es_ES\\Address\n{\n    protected static $cityPrefix = array('San', 'Santa', 'Puerto', 'Valle', 'Villa', 'Parroquia', 'El', 'Los', 'La', 'Las');\n    protected static $citySuffix = array('del Valle', 'de Mara', 'de Altagracia', 'de Asis', 'del Tuy', 'de Mata');\n    protected static $buildingNumber = array('###', '##', '#');\n    protected static $streetPrefix = array(\n        'Calle', 'Avenida', 'Av.', 'Cl.', 'Carretera', 'Callejón', 'Vereda'",
-      "class Address extends \\redacted\\Provider\\Address\n{\n    protected static $citySuffix = array('қаласы');"
+      "class Address extends \\redacted\\Provider\\Address\n{\n    protected static $citySuffix = array('қаласы');",
+      "class Address extends \\redacted\\Provider\\es_ES\\Address\n{\n    protected static $cityPrefix = array('San', 'Puerto', 'Villa', 'Gral.', 'Don');\n    protected static $citySuffix = array('del Mar', 'del Norte', 'del Este', 'del Sur', 'del Oeste', 'del Mirador');\n    protected static $buildingNumber = array('#####', '####', '###', '##', '#');\n    protected static $streetSuffix = array('');\n    protected static $postcode = array('####', '#####');"
     ]
   },
   "transaction.go": {
@@ -12170,7 +12179,8 @@
   "pallet_multisig.rs": {
     "paritytech/polkadot": [
       "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_multisig::WeightInfo for WeightInfo<T> {\n\tfn as_multi_threshold_1(z: u32, ) -> Weight {\n\t\t(12_182_000 as Weight)\n\t\t\t// Standard Error: 0\n\t\t\t.saturating_add((1_000 as Weight).saturating_mul(z as Weight))\n\t}",
-      "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_multisig::WeightInfo for WeightInfo<T> {\n\tfn as_multi_threshold_1(z: u32, ) -> Weight {\n\t\t(12_476_000 as Weight)\n\t\t\t// Standard Error: 0\n\t\t\t.saturating_add((1_000 as Weight).saturating_mul(z as Weight))\n\t}"
+      "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_multisig::WeightInfo for WeightInfo<T> {\n\tfn as_multi_threshold_1(z: u32, ) -> Weight {\n\t\t(12_476_000 as Weight)\n\t\t\t// Standard Error: 0\n\t\t\t.saturating_add((1_000 as Weight).saturating_mul(z as Weight))\n\t}",
+      "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_multisig::WeightInfo for WeightInfo<T> {\n\tfn as_multi_threshold_1(z: u32, ) -> Weight {\n\t\t(12_532_000 as Weight)\n\t\t\t// Standard Error: 0\n\t\t\t.saturating_add((1_000 as Weight).saturating_mul(z as Weight))\n\t}"
     ]
   },
   "sqlite_statement.c": {
@@ -13416,7 +13426,8 @@
   },
   "pallet_proxy.rs": {
     "paritytech/polkadot": [
-      "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_proxy::WeightInfo for WeightInfo<T> {\n\tfn proxy(p: u32, ) -> Weight {\n\t\t(30_904_000 as Weight)\n\t\t\t// Standard Error: 1_000\n\t\t\t.saturating_add((196_000 as Weight).saturating_mul(p as Weight))\n\t\t\t.saturating_add(T::DbWeight::get().reads(1 as Weight))"
+      "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_proxy::WeightInfo for WeightInfo<T> {\n\tfn proxy(p: u32, ) -> Weight {\n\t\t(30_904_000 as Weight)\n\t\t\t// Standard Error: 1_000\n\t\t\t.saturating_add((196_000 as Weight).saturating_mul(p as Weight))\n\t\t\t.saturating_add(T::DbWeight::get().reads(1 as Weight))",
+      "pub struct WeightInfo<T>(PhantomData<T>);\nimpl<T: frame_system::Config> pallet_proxy::WeightInfo for WeightInfo<T> {\n\tfn proxy(p: u32, ) -> Weight {\n\t\t(31_560_000 as Weight)\n\t\t\t// Standard Error: 1_000\n\t\t\t.saturating_add((190_000 as Weight).saturating_mul(p as Weight))\n\t\t\t.saturating_add(T::DbWeight::get().reads(1 as Weight))"
     ]
   },
   "TodoEditStore.js": {
@@ -14289,7 +14300,8 @@
   },
   "Algorithm.hs": {
     "snowleopard/alga": [
-      "module Algebra.Graph.AdjacencyIntMap.Algorithm (\n    -- * Algorithms\n    bfsForest, bfs, dfsForest, dfsForestFrom, dfs, reachable,\n    topSort, isAcyclic,"
+      "module Algebra.Graph.AdjacencyIntMap.Algorithm (\n    -- * Algorithms\n    bfsForest, bfs, dfsForest, dfsForestFrom, dfs, reachable,\n    topSort, isAcyclic,",
+      "module Algebra.Graph.AdjacencyMap.Algorithm (\n    -- * Algorithms\n    bfsForest, bfs, dfsForest, dfsForestFrom, dfs, reachable,\n    topSort, isAcyclic, scc,"
     ]
   },
   "digitaffixesandpadding.cpp": {
