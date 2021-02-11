@@ -129,6 +129,7 @@ async function getState() {
         }
 
         // Update existing entry if the incorrect answer was selected
+        let updatedAnswerBank = false;
         let replaced = false;
 
         for (let i = 0; i < existingEntries.length; i++) {
@@ -140,6 +141,7 @@ async function getState() {
                 if (code.length > existingEntry.length) {
                     existingEntries[i] = code;
                     await saveAnswerBank(answerBank);
+                    updatedAnswerBank = true;
                     console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
                 }
                 
@@ -150,6 +152,7 @@ async function getState() {
         if (!replaced) {
             existingEntries.push(code);
             await saveAnswerBank(answerBank);
+            updatedAnswerBank = true;
             console.log(" ~ added new entry to answer bank", { filename, text: answerOnScreen.text, code });
         }
 
@@ -204,7 +207,11 @@ async function getState() {
             console.error("Got a wrong answer");
             console.error(answers, correctAnswerDatas);
             console.error(answers.map(a => a.text), correctAnswerDatas.slice(0));
-            console.error(filename, answerOnScreen.text, code);
+            console.error(filename, answerOnScreen.text);
+
+            if (!updatedAnswerBank) {
+                debugger;
+            }
         }
 
         nextButton.click();
