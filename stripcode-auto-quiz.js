@@ -75,7 +75,7 @@ async function updateStateLoop() {
 
     loopTimeout = setTimeout(() => {
         updateStateLoop();
-    }, 0);
+    }, 500);
 }
 
 async function getState() {
@@ -87,7 +87,7 @@ async function getState() {
         return;
     }
 
-    const code = getCode();
+    const code = (getCode() || '').trim();
 
     if (!code) {
         console.warn("no code found");
@@ -119,47 +119,78 @@ async function getState() {
         const answerOnScreen = findCorrectAnswer(answers);
 
         // const existingEntry = answerBank.find(entry => entry.filename === filename && entry.correctAnswer === answerOnScreen.text);
-        const existingEntry = answerBank[filename]?.[answerOnScreen.text];//.find(entry => entry.filename === filename && entry.correctAnswer === answerOnScreen.text);
+        const existingEntries = answerBank[filename]?.[answerOnScreen.text] || [];//.find(entry => entry.filename === filename && entry.correctAnswer === answerOnScreen.text);
+
+        if (filename === answerOnScreen.text) {
+            debugger;
+            throw new Error("filename shouldnt match repo");
+        }
 
         // Update existing entry if the incorrect answer was selected
-        if (existingEntry) {
-            if (existingEntry.length < code || uiSaysAnswerIsIncorrect) {
-                answerBank[filename][answerOnScreen.text] = code;
+        let replaced = false;
+        for (let i = 0; i < existingEntries.length; i++) {
+            const existingEntry = existingEntries[i];
+
+            if (code.includes(existingEntry)) {
+                answerBank[filename][answerOnScreen.text][i] = code;
+                replaced = true;
+                await saveAnswerBank(answerBank);
                 console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
+                break;
             }
-        } else {
-            // Add new entry to answerBank
-            const newAnswerToAdd = {
-                filename: filename,
-                code: code,
-                correctAnswer: answerOnScreen.text,
-            };
+        }
 
-            answerBank[filename] = answerBank[filename] || {};
-            answerBank[filename][answerOnScreen.text] = code;
-
-            // answerBank.push(newAnswerToAdd);
+        if (!replaced) {
+            answerBank[filename]?.[answerOnScreen.text] = answerBank[filename]?.[answerOnScreen.text] || [];
+            answerBank[filename]?.[answerOnScreen.text].push(code);
+            await saveAnswerBank(answerBank);
             console.log(" ~ added new entry to answer bank", { filename, text: answerOnScreen.text, code });
         }
+
+        // // Update existing entry if the incorrect answer was selected
         // if (existingEntry) {
-        //     if (existingEntry.code.length < code || uiSaysAnswerIsIncorrect) {
-        //         existingEntry.code = code;
-        //         console.log(" ~ updated entry to answer bank", existingEntry);
+        //     if (existingEntry.length < code || uiSaysAnswerIsIncorrect) {
+        //         answerBank[filename][answerOnScreen.text] = code;
+        //         console.log(" ~ updated entry to answer bank", { filename, text: answerOnScreen.text, code });
         //     }
         // } else {
         //     // Add new entry to answerBank
-        //     const newAnswerToAdd = {
-        //         filename: filename,
-        //         code: code,
-        //         correctAnswer: answerOnScreen.text,
-        //     };
+        //     // const newAnswerToAdd = {
+        //     //     filename: filename,
+        //     //     code: code,
+        //     //     correctAnswer: answerOnScreen.text,
+        //     // };
 
-        //     answerBank.push(newAnswerToAdd);
-        //     console.log(" ~ added new entry to answer bank", newAnswerToAdd);
+        //     if (filename === answerOnScreen.text) {
+        //         debugger;
+        //         throw new Error("filename shouldnt match repo");
+        //     }
+
+        //     answerBank[filename] = answerBank[filename] || {};
+        //     answerBank[filename][answerOnScreen.text] = code;
+
+        //     // answerBank.push(newAnswerToAdd);
+        //     console.log(" ~ added new entry to answer bank", { filename, text: answerOnScreen.text, code });
         // }
+        // // if (existingEntry) {
+        // //     if (existingEntry.code.length < code || uiSaysAnswerIsIncorrect) {
+        // //         existingEntry.code = code;
+        // //         console.log(" ~ updated entry to answer bank", existingEntry);
+        // //     }
+        // // } else {
+        // //     // Add new entry to answerBank
+        // //     const newAnswerToAdd = {
+        // //         filename: filename,
+        // //         code: code,
+        // //         correctAnswer: answerOnScreen.text,
+        // //     };
 
-        // Update local file of answerBank
-        await saveAnswerBank(answerBank);
+        // //     answerBank.push(newAnswerToAdd);
+        // //     console.log(" ~ added new entry to answer bank", newAnswerToAdd);
+        // // }
+
+        // // Update local file of answerBank
+        // await saveAnswerBank(answerBank);
 
         lastCodeSeen = code;
 
@@ -253,8 +284,17 @@ function getCorrectAnswerDatas(filename, code, answers) {
     const correctAnswerDatas = [];
 
     for (const answer of answers) {
-        if (filenameEntries[answer.text] && filenameEntries[answer.text].includes(code.trim())) {
-            correctAnswerDatas.push(answer.text);
+        // if (filenameEntries[answer.text] && filenameEntries[answer.text].includes(code.trim())) {
+        //     correctAnswerDatas.push(answer.text);
+        // }
+
+        const codeSnippets = filenameEntries[answer.text] || [];
+
+        for (const codeSnippet of codeSnippets) {
+            if (codeSnippet.includes(code)) {
+                correctAnswerDatas.push(answer.text);
+            }
+            break;
         }
     }
 
