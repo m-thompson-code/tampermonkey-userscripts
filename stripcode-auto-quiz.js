@@ -135,7 +135,7 @@ async function getState() {
         for (let i = 0; i < existingEntries.length; i++) {
             const existingEntry = existingEntries[i];
 
-            if (code.includes(existingEntry)) {
+            if (code.includes(existingEntry) || existingEntries.includes(code)) {
                 replaced = true;
 
                 if (code.length > existingEntry.length) {
@@ -157,13 +157,15 @@ async function getState() {
         }
 
         if (uiSaysAnswerIsIncorrect) {
-            console.error("Got a wrong answer");
-            // console.error(answers, correctAnswerDatas);
-            console.error(answers.map(a => a.text), correctAnswerDatas.slice(0));
-            console.error(filename, answerOnScreen.text);
+            if (lastCodeSeen !== code) {
+                console.error("Got a wrong answer");
+                // console.error(answers, correctAnswerDatas);
+                console.error(answers.map(a => a.text), correctAnswerDatas.slice(0));
+                console.error(filename, answerOnScreen.text);
 
-            if (!updatedAnswerBank && lastCodeSeen !== code) {
-                debugger;
+                if (!updatedAnswerBank) {
+                    debugger;
+                }
             }
         }
 
@@ -254,10 +256,6 @@ function getCorrectAnswerDatas(filename, code, answers) {
     const correctAnswerDatas = [];
 
     for (const answer of answers) {
-        // if (filenameEntries[answer.text] && filenameEntries[answer.text].includes(code.trim())) {
-        //     correctAnswerDatas.push(answer.text);
-        // }
-
         const codeSnippets = filenameEntries[answer.text] || [];
 
         for (const codeSnippet of codeSnippets) {
@@ -267,22 +265,6 @@ function getCorrectAnswerDatas(filename, code, answers) {
             break;
         }
     }
-
-    // const correctAnswerDatas = answerBank.filter(entry => {
-    //     if (entry.filename !== filename) {
-    //         return false;
-    //     }
-
-    //     if (!answers.some(answer => answer.text === entry.correctAnswer)) {
-    //         return false;
-    //     }
-
-    //     if (entry.code.includes(code.trim())) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // });
 
     return correctAnswerDatas;
 }
